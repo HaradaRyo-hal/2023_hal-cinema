@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP');
+
+.Sidebar {
+  position: fixed;
+  height: 100%;
+  width: 250px;
+  background-image: url('../../../public/images/hal2.jpg'); /* 画像のパスを指定 ../media/hal2.b77bcc56a12764f953fb.jpg*/
+  background-size: cover; /* 画像を要素に合わせて拡大縮小 */
+  background-position: center ; /* 画像を中央に配置 */
+  background-repeat: no-repeat; /* 画像の繰り返しを禁止 */
+  /* filter: grayscale(100%); 画像を白黒にする */
+}
+
+.SidebarList {
+  height: auto;
+  padding: 0;
+  width: 100%;
+}
+.SidebarList .row {
+  width: 90%; /* クリックとホバーの範囲を狭める */
+  height: 60px;
+  display: flex;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto; /* 要素を中央に配置 */
+  border-radius: 7px;
+  margin-bottom: 10px;
+}
+
+
+.SidebarList .row::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(192, 192, 192, 0.5); /* 半透明の背景色 */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.SidebarList .row:hover::after {
+  opacity: 1;
+}
+
+.SidebarList .row:hover {
+  cursor: pointer;
+  background-color: transparent; /* hover時の背景色を透明にする */
+}
+
+.SidebarList .row:hover .text {
+  color: inherit;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+}
+
+#icon {
+  flex: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: -30px; /* IconとTextの間隔を調整 */
+}
+
+.text {
+  flex: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  overflow: hidden;
+}
+
+#title {
+  margin-bottom: 3px;
+  font-size: 16px;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+#subtitle {
+  font-size: 12px;
+  font-family: 'Noto Sans JP', sans-serif;
+
+}
+
+.SidebarIcon {
+  padding-top: 20px;
+  padding-bottom: 15px;
+  text-align: center;
+}
+
+.SidebarIcon img {
+  width: 100px;
+}
+#sidebar_logo{
+  text-align: center;
+  padding: 20px 0 20px 0;
+}

@@ -1,0 +1,17 @@
+tr:nth-child(even) {
+  background-color: #f2f2f2; /* 偶数行の背景色 */
+}
+
+tr:nth-child(odd) {
+  background-color: #d9d9d9; /* 奇数行の背景色 */
+}
+tr {
+  display: flex;
+  justify-content: center;
+  margin: 0 50px;
+  border-collapse: collapse;
+}
+td {
+  width: 25%; /* TD要素の幅を25%に設定 */
+  padding: 15px 0 15px 10px;
+}

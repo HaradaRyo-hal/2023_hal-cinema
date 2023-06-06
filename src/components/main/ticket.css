@@ -1,0 +1,41 @@
+h3{
+    margin: 60px 0 20px 0;
+}
+.box {
+    position: relative; /* 相対位置を指定 */
+    box-sizing: border-box;
+    padding-bottom: 8px; /* ボーダーラインの下側にマージンを設定 */
+  }
+  
+  .box::after {
+    content: ""; /* 擬似要素を追加 */
+    position: absolute; /* 絶対位置を指定 */
+    bottom: 10px; /* 下部に配置 */
+    left: 50px; /* 左端に配置 */
+    width: calc(100% - 150px);
+    border-bottom: 1px solid #d9d9d9; /* ボーダーラインの幅とスタイルを指定 */
+  }
+.block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .user {
+    text-align: center;
+    padding: 0 50px;
+    font-weight: 600;
+    font-size: 1.15rem;
+  }
+  
+  .price {
+    text-align: center;
+    padding: 0 100px;
+    font-weight: 600;
+    font-size: 1.15rem;
+  }
+  .small{
+    margin-top: -15px;
+    padding: 0 0 0 50px;
+    font-size: small;
+  }

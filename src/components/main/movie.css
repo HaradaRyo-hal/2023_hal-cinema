@@ -1,0 +1,52 @@
+.tab-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    margin-bottom: 50px;
+  }
+  
+  .tab-item {
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+    position: relative;
+    min-width: 450px;
+  }
+  
+  .underline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    background-color: #9b7d4d;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .tab-item.active {
+    font-weight: bold;
+    color: #9b7d4d;
+  }
+  
+  .tab-content {
+    margin-top: 10px;
+  }
+  .image-with-text {
+    display: flex;
+    align-items: center;
+    border: 1px solid #dee2e6;
+    padding: 10px;
+    margin: 15px 0;
+  }
+  
+  .image-with-text img {
+    width: 20%;
+    margin-right: 10px; /* 画像とテキストの間隔を調整 */
+  }
+  
+.image-with-text .text-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 100px;
+  }

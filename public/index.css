@@ -1,0 +1,151 @@
+/* スライドショー */
+.slideshow {
+  margin: 0 auto;
+  padding: 0 40px;
+}
+.slideshow img {
+    width: 30vw;/*スライダー内の画像を60vwにしてレスポンシブ化*/
+    height: auto;
+}
+.slideshow .slick-slide {
+	transform: scale(0.8);/*左右の画像のサイズを80%に*/
+	transition: all .5s;/*拡大や透過のアニメーションを0.5秒で行う*/
+	opacity: 0.5;/*透過50%*/
+}
+.slideshow .slick-slide.slick-center{
+	transform: scale(1);/*中央の画像のサイズだけ等倍に*/
+	opacity: 1;/*透過なし*/
+}
+
+
+/* news & twitter  */
+.block{
+  display: flex;
+  color: #000000;
+  backdrop-filter: blur(10px);
+  padding: 0 0 50px 0;
+}
+section h1{
+  font-size: 1.2rem;
+  text-align: center;
+}
+section#news dl{
+  width: 400px;
+  height: 550px;
+  margin: 0 0 0 20px;
+  padding: 20px;
+  overflow: scroll;
+  line-height: 1.6rem;
+}
+section#news dl dt{
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+section#news dl dd{
+  margin: 0 0 10px 0;
+  padding: 0 0 10px 0;
+  border-bottom: 1px #bbb dotted;
+}
+
+
+/* 日付のスライダー */
+.slider {
+  position: relative;
+  padding: 0 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.slider .item{
+  text-align: center;
+  background-color: #4b4b4b;
+  padding: 0 0 40px 0;
+  font-size: 1.3rem;
+  color: #ffffff;
+  border-left: 0.1px solid#ffffff;
+  border-right: 0.1px solid #ffffff;
+}
+.slider .item{
+  text-align: center;
+  background-color: #4b4b4b;
+  padding: 0 0 40px 0;
+  font-size: 1.3rem;
+  color: #ffffff;
+  border-left: 0.1px solid#ffffff;
+  border-right: 0.1px solid #ffffff;
+}
+
+
+/*矢印の設定*/
+/*戻る、次へ矢印の位置*/
+.slick-prev, .slick-next {
+    position: absolute;/*絶対配置にする*/
+    top: 42%;
+    cursor: pointer;/*マウスカーソルを指マークに*/
+    outline: none;/*クリックをしたら出てくる枠線を消す*/
+    border-top: 2px solid #666;/*矢印の色*/
+    border-right: 2px solid #666;/*矢印の色*/
+    height: 15px;
+    width: 15px;
+}
+.slick-prev {/*戻る矢印の位置と形状*/
+    left: 0;
+    transform: rotate(-135deg);
+}
+.slick-next {/*次へ矢印の位置と形状*/
+    right: 0;
+    transform: rotate(45deg);
+}
+
+
+/*ドットナビゲーションの設定*/
+.slick-dots {
+  text-align:center;
+	margin:20px 0 0 0;
+}
+.slick-dots li {
+  display:inline-block;
+	margin:0 5px;
+}
+.slick-dots button {
+  color: transparent;
+  outline: none;
+  width:8px;/*ドットボタンのサイズ*/
+  height:16px;/*ドットボタンのサイズ*/
+  display:block;
+  border-radius:50%;
+  background:#ccc;/*ドットボタンの色*/
+}
+.slick-dots .slick-active button{
+    background:#333;/*ドットボタンの現在地表示の色*/
+}
+
+
+/* content */
+.content{
+  display: none;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 700!important;
+}
+.content:first{
+  display: block;
+}
+.content h1{
+  background-color: #eae1d1;
+  width: auto;
+}
+.button-003 {
+  width: 250px;
+  margin:0 auto;
+  padding: .9em 2em;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 2px 3px rgb(0 0 0 / 25%), 0 2px 3px -2px rgb(0 0 0 / 15%);
+  background-color: #2589d0;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+}
+.button-003:hover {
+  background-color: #1579c0;
+}
