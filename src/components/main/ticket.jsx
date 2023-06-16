@@ -3,7 +3,7 @@ import './ticket.css';
 
 function Ticket() {
   return (
-    <div>
+    <main>
       <h1>チケット</h1>
       <div>
         <h3>入場料金</h3>
@@ -58,7 +58,7 @@ function Ticket() {
             </div>
           </div>
       </div>
-    </div>
+    </main>
   );
 }
 
