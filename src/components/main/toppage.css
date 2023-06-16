@@ -1,7 +1,6 @@
 /* スライドショー */
 .slideshow {
-    margin: 0 auto;
-    padding: 0 40px;
+    margin: 0 ;
   }
   .slideshow img {
       width: 30vw;/*スライダー内の画像を60vwにしてレスポンシブ化*/
@@ -16,13 +15,69 @@
       transform: scale(1);/*中央の画像のサイズだけ等倍に*/
       opacity: 1;/*透過なし*/
   }
+
+  .txt-hide {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.5s ease;
+  }
   
+  .txt-show {
+    max-height: 1000px;
+    transition: max-height 0.5s ease;
+  }
   
+  .news_main {
+    width: 100%;
+    max-width: 600px;
+  }
+  
+  .news_event {
+    margin-top: 20px;
+  }
+  
+  .news_box {
+    margin-bottom: 10px;
+    background-color: #f0f0f0;
+    padding: 10px;
+  }
+  
+  .news_date {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .news_list {
+    margin-left: 20px;
+  }
+  
+  .view_more_button {
+    display: block;
+    margin: 10px auto 50px auto;
+    padding: 10px 20px;
+    width: 100%;
+    max-width: 600px;
+    font-size: 1.15rem;
+    background-color: #ccc;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .view_more_button:hover {
+    background-color: #999;
+  }
+  
+  .txt-hide {
+    display: none;
+  }
+
+
   /* 日付のスライダー */
   .slider {
     position: relative;
     padding: 0 40px;
-    margin: 100px 0 0 0;
+    margin: 0 0 0 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -50,16 +105,26 @@
   
   /*矢印の設定*/
   /*戻る、次へ矢印の位置*/
-  .slick-prev, .slick-next {
-      position: absolute;/*絶対配置にする*/
-      top: 42%;
-      cursor: pointer;/*マウスカーソルを指マークに*/
-      outline: none;/*クリックをしたら出てくる枠線を消す*/
-      border-top: 2px solid #666;/*矢印の色*/
-      border-right: 2px solid #666;/*矢印の色*/
-      height: 15px;
-      width: 15px;
-  }
+  .slideshow .slick-prev, .slick-next {
+    position: absolute;/*絶対配置にする*/
+    top: 42%;
+    cursor: pointer;/*マウスカーソルを指マークに*/
+    outline: none;/*クリックをしたら出てくる枠線を消す*/
+    border-top: 2px solid #666;/*矢印の色*/
+    border-right: 2px solid #666;/*矢印の色*/
+    height: 15px;
+    width: 15px;
+}
+.slider .slick-prev, .slick-next {
+    position: absolute;/*絶対配置にする*/
+    top: 42%;
+    cursor: pointer;/*マウスカーソルを指マークに*/
+    outline: none;/*クリックをしたら出てくる枠線を消す*/
+    border-top: 2px solid #666;/*矢印の色*/
+    border-right: 2px solid #666;/*矢印の色*/
+    height: 15px;
+    width: 15px;
+}
   .slick-prev {/*戻る矢印の位置と形状*/
       left: 0;
       transform: rotate(-135deg);
@@ -98,6 +163,10 @@
     display: none;
     font-family: 'Noto Sans JP', sans-serif;
     font-weight: 700!important;
+    border: 1px solid #dee2e6!important;
+    margin: 50px 0 120px 0; 
+    padding: 0;
+    background-color: #f2f2f2;
   }
   .content:first{
     display: block;
@@ -105,11 +174,15 @@
   .content h1{
     background-color: #eae1d1;
     width: auto;
+    padding: 0;
+    margin: 0;
+    border-left: 0px solid #000000; /*線の設定*/
+  }
+  .ticket_box{
+    display: flex;
+    justify-content: left;
   }
   .button-003 {
-    width: 250px;
-    margin:0 auto;
-    padding: .9em 2em;
     border: none;
     border-radius: 5px;
     box-shadow: 0 2px 3px rgb(0 0 0 / 25%), 0 2px 3px -2px rgb(0 0 0 / 15%);
@@ -117,8 +190,40 @@
     color: #fff;
     font-weight: 600;
     font-size: 1rem;
+    width: px;
+    height: 100px;
+    box-sizing: border-box;
+    margin: 15px 20px 15px 30px;
   }
   .button-003:hover {
     background-color: #1579c0;
   }
-  
+  .button-003 p{
+    margin: 0;
+  }
+  .button-003 .time{
+    font-size: 1.2rem;
+  }
+  .button-003 .theater{
+    font-size: 0.8rem;
+  }
+  .button-003 .pay{
+    font-size: 1.2rem;
+  }
+
+  .news_event{
+    border: 1px solid #d9d9d9;
+    border-radius: 8px;
+  }
+  .news_box{
+      padding: 15px 0;
+  }
+  .news_box:hover{
+      opacity: 0.5;
+  }
+  .news_list{
+      font-size: 1.1rem;
+  }
+  .news_date{
+      font-size: 0.8rem;
+  }

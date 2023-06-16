@@ -7,6 +7,7 @@ function Footer() {
     <footer className="footer">
 
       <div className="footer-content">
+        
 
         <div className='hal'>
           <a href="https://www.hal.ac.jp/nagoya?utm_source=google&utm_medium=banner&utm_content=hal&utm_campaign=DGN&gclid=Cj0KCQjwj_ajBhCqARIsAA37s0wCbAXhN5rMbK1pl2IurDFdxJeuFt_f2FO19tifTyXTB1hs-YnG4OUaAtkTEALw_wcB">
@@ -36,7 +37,7 @@ function Footer() {
           </div>
         </div>
         
-        <div>
+        <div className='sns_view'>
           <p>劇場SNSアカウント</p>
         </div>
         <div className="sns_box">
@@ -59,7 +60,13 @@ function Footer() {
 
         <div className="black">
           <img src="images/logo2.png" alt="画像の説明" />
-          
+          <div className='footer_nav'>
+            <p>会社概要</p>
+            <p>特定商取引法に基づく表記</p>
+            <p>利用規約</p>
+            <p>プライバシーポリシー</p>
+            <p>サイトマップ</p>
+          </div>
           <p className="footer-copyright">
             Copy right &copy; 2023 HAL CINEMA<br></br>
             All rights reserved.

@@ -1,21 +1,23 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import LoginIcon from '@mui/icons-material/Login';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
 import './header.css';
-import Login from '@mui/icons-material/Login';
-import {AddCircle} from '@mui/icons-material';
 
 function Header() {
   return (
     <header>
-        <div className="header-buttons">
-            <button className="login-button">
-              <Login />ログイン
-            </button>
-            <button className="signup-button">
-              <AddCircle />新規登録
-            </button>
-        </div>
+      <div className="header-buttons">
+        <Link to="/login" className="login-button">
+          <LoginIcon />ログイン
+        </Link>
+        <Link to="/signup" className="signup-button">
+          <AddCircleIcon />新規登録
+        </Link>
+      </div>
     </header>
   );
 }
 
 export default Header;
+

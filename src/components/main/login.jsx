@@ -1,65 +1,84 @@
-import React from 'react';
-import './login.css';
+import React, { useState } from 'react';
+import './login.css'; // CSSファイルのインポート
 
-function Login() {
+const Login = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [showRegistration, setShowRegistration] = useState(false);
+  const [newEmail, setNewEmail] = useState('');
+  const [newPassword, setNewPassword] = useState('');
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    // ログイン処理
+    console.log('ログイン:', email, password);
+    // ここでサーバーとの通信などの実際のログイン処理を行う
+  };
+
+  const handleRegistration = (e) => {
+    e.preventDefault();
+    // 新規登録処理
+    console.log('新規登録:', newEmail, newPassword);
+    // ここでサーバーとの通信などの実際の新規登録処理を行う
+  };
+
+  const handleRegistrationSwitch = () => {
+    setShowRegistration(!showRegistration);
+  };
+
   return (
-    <div>
-      <h1>ログイン</h1>
-      <div>
-        <h3>入場料金</h3>
-          <div class="box">
-            <div class="block">
-              <p class="user">一般</p>
-              <p class="price">¥1,900</p>
+    <div className="login-container">
+      {showRegistration ? (
+        <div>
+          <h2>新規登録</h2>
+          <form onSubmit={handleRegistration}>
+            <div>
+              <label>Email:</label>
+              <input
+                type="email"
+                value={newEmail}
+                onChange={(e) => setNewEmail(e.target.value)}
+              />
             </div>
-          </div>
-          <div class="box">
-            <div class="block">
-              <p class="user">大学生</p>
-              <p class="price">¥1,500</p>
+            <div>
+              <label>Password:</label>
+              <input
+                type="password"
+                value={newPassword}
+                onChange={(e) => setNewPassword(e.target.value)}
+              />
             </div>
-            <p class="small">※要学生証</p>
-          </div>
-          <div class="box">
-            <div class="block">
-              <p class="user">小学生・中学生・高校生</p>
-              <p class="price">¥1,000</p>
+            <button type="submit">登録</button>
+          </form>
+          <button onClick={handleRegistrationSwitch}>ログイン画面に切り替え</button>
+        </div>
+      ) : (
+        <div>
+          <h2>ログイン</h2>
+          <form onSubmit={handleLogin}>
+            <div>
+              <label>Email:</label>
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
             </div>
-            <p class="small">※高校生は要学生証</p>
-          </div>
-          <div class="box">
-            <div class="block">
-              <p class="user">幼児(3歳以上)</p>
-              <p class="price">¥1,900</p>
+            <div>
+              <label>Password:</label>
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
             </div>
-            <p class="small">※作品によっては2歳以上の場合がございます。</p>
-          </div>
-          <div class="box">
-            <div class="block">
-              <p class="user">シニア(60歳以上)</p>
-              <p class="price">¥1,200</p>
-            </div>
-          </div>
-          <div class="box">
-            <div class="block">
-              <p class="user">ハンディキャップ</p>
-              <p class="price">¥1,000</p>
-            </div>
-            <p class="small">※障がい者手帳をお持ちのご本人様。<br></br>
-                            ※付き添いの方1名様まで同じ料金になります。<br></br>
-                            ※障がい者手帳、療育手帳、療育手帳、身体障がい者手帳、精神障がい者保健福祉手帳。<br></br>
-                            もしくは障がい者手帳アプリ「ミライロID」要提示（障がい者手帳アプリ「ミライロID」詳細はこちら）</p>
-          </div>
-        <h3>スペシャルシート</h3>
-          <div class="box">
-            <div class="block">
-              <p class="user">プレミアムクラス</p>
-              <p class="price">入場料金 + ¥800</p>
-            </div>
-          </div>
-      </div>
+            <button type="submit">ログイン</button>
+          </form>
+          <button onClick={handleRegistrationSwitch}>新規登録画面に切り替え</button>
+        </div>
+      )}
     </div>
   );
-}
+};
 
 export default Login;

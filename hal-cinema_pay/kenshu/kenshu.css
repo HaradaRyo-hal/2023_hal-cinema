@@ -1,0 +1,33 @@
+.setumei {
+    font-size: 1.7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(-20px);
+}
+
+h2{
+    font-size: 3.5rem;
+    text-align: center;
+    margin-top: 200px;
+}
+
+.box01{
+    font-size: 1.7rem;
+    display: flex;
+    justify-content: center;
+}
+
+.ippan,.daigakusei,.shoutyuukou,.youji{
+    width: 1200px;
+    border-bottom: 5px solid #D9D9D9;
+}
+
+
+
+.next {
+    margin: 80px 0 60px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

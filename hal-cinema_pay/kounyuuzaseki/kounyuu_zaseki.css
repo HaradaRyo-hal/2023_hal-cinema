@@ -1,0 +1,231 @@
+
+.container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h2 {
+    font-size: 3.5rem;
+    text-align: center;
+    margin-top: -200px;
+}
+
+.box01 {
+    box-sizing: border-box;
+    width: 200px;
+    height: 100px;
+    font-size: 1.6rem;
+    border: double 5px #4ec4d3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(-100px);
+}
+
+.box02 {
+    width: 500px;
+    height: 90px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 39px;
+    border: double 5px #4ec4d3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translate(100px,-100px);
+}
+
+.box03 {
+    width: 200px;
+    height: 90px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 39px;
+    display: flex;
+    align-items: center;
+    border: double 5px #4ec4d3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translate(610px, -200px);
+}
+
+.box04 {
+    width: 190px;
+    height: 91px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 39px;
+    border: double 5px #4ec4d3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translate(-100px, -200px);
+}
+
+.box05 {
+    box-sizing: border-box;
+    width: 720px;
+    height: 100px;
+    font-size: 1.6rem;
+    border: double 5px #4ec4d3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translate(100px, -300px);
+}
+
+/* 座席説明 */
+.setumei{
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 座席ボタンの設定 */
+
+.zaseki{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+}
+
+.tateretu {
+    display: inline-block;
+    font-size: 15px;
+}
+
+.custom-button {
+    padding: 10px 15px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.custom-button6 {
+    padding: 10px 15px;
+    font-size: 16px;
+    background-color: #ff0000;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.custom-button12 {
+    padding: 10px 15px;
+    font-size: 16px;
+    background-color: #003d80;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.custom-button:hover {
+    background-color: #0056b3;
+}
+
+.custom-button:active {
+    background-color: #003d80;
+}
+
+
+/* 席説明 */
+
+.sekiyoyaku{
+    padding: 50px 0 50px 0;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.kuuseki {
+    padding: 10px 15px;
+    border-radius: 4px;
+    background-color: #007bff;
+    width: 37px;
+    height: 47px;
+    color: #fff;
+    transform: translateX(-100px);
+}
+
+.sentaku {
+    padding: 10px 15px;
+    border-radius: 4px;
+    background-color: #003d80;
+    width: 37px;
+    height: 47px;
+    color: #fff;
+}
+
+.yoyakuzumi {
+    padding: 10px 15px;
+    border-radius: 4px;
+    background-color: #ff0000;
+    width: 37px;
+    height: 47px;
+    color: #fff;
+    transform: translateX(100px);
+}
+
+/* 利用規約 */
+.riyoukiyaku {
+    font-size: 1.3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.riyoukiyaku2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.riyoukiyaku2 p {
+    box-sizing: border-box;
+    padding: 5px;
+    line-height: 40px;
+    font-size: 1.3rem;
+    border: solid 5px #4ec4d3;
+}
+
+/* 規約に同意 */
+.doui{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.doui label{
+    font-size: 1.5rem;
+    margin: 40px 0;
+}
+
+input[type="checkbox"] {
+    width: 30px;
+    /* 幅を変更 */
+    height: 30px;
+    /* 高さを変更 */
+}
+

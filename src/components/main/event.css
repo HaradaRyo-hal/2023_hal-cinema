@@ -1,0 +1,12 @@
+.event_table{
+    border: 1px solid;
+    border-radius: 8px;
+}
+.event_box{
+    display: flex;
+    justify-content: left;
+    margin: 30px;
+}
+.event_box:hover{
+    opacity: 0.5;
+}

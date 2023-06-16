@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect , useState } from 'react';
 import './toppage.css';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
@@ -30,6 +30,27 @@ const Home = () => {
     });
   }, []);
 
+
+  const [visibleCount, setVisibleCount] = useState(3);
+
+  const newsData = [
+    { date: '2023年06月05日', content: '6/9(金)～8/31(木) 【午前十時の映画祭13】 学生半額キャンペーンのご案内' },
+    { date: '2023年06月05日', content: '6/10(土)『名探偵コナン　黒鉄の魚影（サブマリン）』＜ぎょぇぇえ～！！発声可能応援上映＞開催決定！' },
+    { date: '2023年06月02日', content: '6/24（土）【第2回】ミッドランドスクエアシネマpresents　予告と宣伝から楽しむシネマの世界2023夏～秋公開作品【予告上映＆宣伝大会】　実施のお知らせ' },
+    { date: '2023年06月05日', content: '映画『ブラッククローバー 魔法帝の剣』オリジナルコラボドーナツセット販売決定！' },
+    { date: '2023年06月01日', content: '6/23(金)～【月イチ35㎜フィルム上映】2023年6月は　追悼　坂本龍一特集『トニー滝谷』（2004年）を上映！' },
+    { date: '2023年06月01日', content: '6/17(土)　【松岡ひとみのシネマコネクションVOL.41】「有り、触れた、未来」トークイベント付き特別上映会　実施決定！' },
+    { date: '2023年05月031日', content: '6/2(金)～3週間限定「憧れを超えた侍たち 世界一への記録」侍ジャパン 完全密着ドキュメンタリー映画上映決定‼' },
+    { date: '2023年05月30日', content: '6/2(金)～6/8(木)　「たまこまーけっと」10th Anniversary 特別上映開催！' },
+    { date: '2023年05月28日', content: '『ザ・スーパーマリオブラザーズ・ムービー』入場者プレゼント配布終了のお知らせ' },
+    { date: '2023年05月26日', content: '6/16(金)『名探偵コナン　黒鉄の魚影（サブマリン）』＜「自動制御ペンライト演出付き発声可能応援上映＞開催決定！' },
+  ];
+
+
+  const handleClick = () => {
+    setVisibleCount(visibleCount + 5);
+  };
+
   return (
       <main>
         <Slider
@@ -52,6 +73,28 @@ const Home = () => {
           <div><img src="images/tokyo.jpg" alt="" /></div>
         </Slider>
 
+     
+    <div className="news_main">
+      <h1>NEWS</h1>
+      <div className="news_event">
+        {newsData.slice(0, visibleCount).map((news, index) => (
+          <div className="news_box" key={index}>
+            <div className="news_date">{news.date}</div>
+            <div className="news_list">{news.content}</div>
+          </div>
+        ))}
+      </div>
+      {visibleCount < newsData.length && (
+        <button className="view_more_button" onClick={handleClick}>
+          view more	&#9661;
+        </button>
+      )}
+    </div>
+
+
+
+
+        <h1>劇場スケジュール</h1>
         <Slider
           infinite={false}//有限スクロール
           arrows={true}
@@ -83,62 +126,120 @@ const Home = () => {
           <div className="item" onClick={(e) => changeColor(e.target, 'content18')} data-content="content18">６月１８日(日)</div>
         </Slider>
 
+        <h1>チケット購入</h1>
 
         <div id="content1" className="content">
           <div>
             <h1>スーパーマリオ</h1>
-            <button className="button-003">
-              08:30~10:30<br />
-              シアター３<br />
-              〇購入可
-            </button>
-            <button className="button-003">
-              08:30~10:30<br />
-              シアター３<br />
-              〇購入可
-            </button>
-            <button className="button-003">
-              08:30~10:30<br />
-              シアター３<br />
-              〇購入可
-            </button>
+            <div className='ticket_box'>
+              <button className="button-003">
+                <p className='time'>08:30~10:30</p>
+                <p className='theater'>シアター３</p>
+                <p className='pay'>〇購入可</p>
+              </button>
+              <button className="button-003">
+                <p className='time'>11:30~13:30</p>
+                <p className='theater'>シアター３</p>
+                <p className='pay'>〇購入可</p>
+              </button>
+              <button className="button-003">
+                <p className='time'>14:00~16:00</p>
+                <p className='theater'>シアター３</p>
+                <p className='pay'>〇購入可</p>
+              </button>
+              <button className="button-003">
+                <p className='time'>16:30~18:30</p>
+                <p className='theater'>シアター３</p>
+                <p className='pay'>〇購入可</p>
+              </button>
+              <button className="button-003">
+                <p className='time'>19:00~21:00</p>
+                <p className='theater'>シアター３</p>
+                <p className='pay'>〇購入可</p>
+              </button>
+            </div>
           </div>
           <div>
             <h1>名探偵コナン</h1>
-            <button className="button-003">
-              08:30~10:30<br />
-              シアター３<br />
-              〇購入可
-            </button>
-            <button className="button-003">
-              08:30~10:30<br />
-              シアター３<br />
-              〇購入可
-            </button>
-            <button className="button-003">
-              08:30~10:30<br />
-              シアター３<br />
-              〇購入可
-            </button>
+            <div className='ticket_box'>
+              <button className="button-003">
+                <p className='time'>08:30~10:30</p>
+                <p className='theater'>シアター３</p>
+                <p className='pay'>〇購入可</p>
+              </button>
+              <button className="button-003">
+                <p className='time'>08:30~10:30</p>
+                <p className='theater'>シアター３</p>
+                <p className='pay'>〇購入可</p>
+              </button>
+              <button className="button-003">
+                <p className='time'>08:30~10:30</p>
+                <p className='theater'>シアター３</p>
+                <p className='pay'>〇購入可</p>
+              </button>
+            </div>
           </div>
           <div>
             <h1>ワイルドスピード</h1>
-            <button className="button-003">
-              08:30~10:30<br />
-              シアター３<br />
-              〇購入可
-            </button>
-            <button className="button-003">
-              08:30~10:30<br />
-              シアター３<br />
-              〇購入可
-            </button>
-            <button className="button-003">
-              08:30~10:30<br />
-              シアター３<br />
-              〇購入可
-            </button>
+            <div className='ticket_box'>
+              <button className="button-003">
+                <p className='time'>08:30~10:30</p>
+                <p className='theater'>シアター３</p>
+                <p className='pay'>〇購入可</p>
+              </button>
+              <button className="button-003">
+                <p className='time'>08:30~10:30</p>
+                <p className='theater'>シアター３</p>
+                <p className='pay'>〇購入可</p>
+              </button>
+              <button className="button-003">
+                <p className='time'>08:30~10:30</p>
+                <p className='theater'>シアター３</p>
+                <p className='pay'>〇購入可</p>
+              </button>
+            </div>
           </div>
+          <div>
+            <h1>おとななじみ</h1>
+            <div className='ticket_box'>
+              <button className="button-003">
+                <p className='time'>08:30~10:30</p>
+                <p className='theater'>シアター３</p>
+                <p className='pay'>〇購入可</p>
+              </button>
+              <button className="button-003">
+                <p className='time'>08:30~10:30</p>
+                <p className='theater'>シアター３</p>
+                <p className='pay'>〇購入可</p>
+              </button>
+              <button className="button-003">
+                <p className='time'>08:30~10:30</p>
+                <p className='theater'>シアター３</p>
+                <p className='pay'>〇購入可</p>
+              </button>
+            </div>
+          </div>
+          <div>
+            <h1>岸部露伴ルーブルへ行く</h1>
+            <div className='ticket_box'>
+              <button className="button-003">
+                <p className='time'>08:30~10:30</p>
+                <p className='theater'>シアター３</p>
+                <p className='pay'>〇購入可</p>
+              </button>
+              <button className="button-003">
+                <p className='time'>08:30~10:30</p>
+                <p className='theater'>シアター３</p>
+                <p className='pay'>〇購入可</p>
+              </button>
+              <button className="button-003">
+                <p className='time'>08:30~10:30</p>
+                <p className='theater'>シアター３</p>
+                <p className='pay'>〇購入可</p>
+              </button>
+            </div>
+          </div>
+         
         </div>
         <div id="content2" className="content" style={{ display: 'none' }}>
           <h1>要素2の内容</h1>
@@ -168,6 +269,7 @@ const Home = () => {
           <h1>要素8の内容</h1>
           <p>ここに要素7の詳細な情報やコンテンツを記述します。</p>
         </div>
+
 
     </main>
   );

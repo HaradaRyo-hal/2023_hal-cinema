@@ -5,6 +5,7 @@ import TheaterIcon from '@mui/icons-material/Theaters';
 import EventIcon from '@mui/icons-material/EventNote';
 import AccessIcon from '@mui/icons-material/Map';
 import SupportIcon from '@mui/icons-material/Help';
+import LoginIcon from '@mui/icons-material/Person';
 
 export const SidebarData = [
   {
@@ -48,5 +49,11 @@ export const SidebarData = [
     subtitle: "SUPPORT",
     link: "/support",
     icon: <SupportIcon />,
+  },
+  {
+    title: "ログイン",
+    subtitle: "Login",
+    link: "/Login",
+    icon: <LoginIcon/>,
   },
 ];

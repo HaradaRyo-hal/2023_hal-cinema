@@ -1,0 +1,133 @@
+html {
+    margin: 0 auto;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+h1 {
+    margin: 0;
+}
+
+.logo {
+    margin-left: 20%;
+}
+
+.links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    right: 15%;
+}
+
+.links a {
+    text-decoration: none;
+    color: black;
+    position: relative;
+    margin: 0 10px;
+}
+
+.links a::after {
+    content: "";
+    display: block;
+    width: 10px;
+    height: 10px;
+    background: black;
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+}
+
+.links::before {
+    content: "";
+    display: block;
+    height: 2px;
+    background: black;
+    position: absolute;
+    bottom: -5px;
+    left: 10%;
+    right: 10%;
+}
+
+.links .completed-link::after {
+    background: red;
+}
+
+.links .done-text {
+    color: red;
+}
+
+.main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 900px;
+}
+
+.main div{
+font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 3rem;
+line-height: 48px;
+display: flex;
+align-items: center;
+text-align: center;
+
+color: #000000;
+}
+
+.main div.m1{
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 1.5rem;
+line-height: 29px;
+display: flex;
+align-items: center;
+text-align: center;
+margin-top: 20px;
+color: #000000;
+}
+
+
+.main a.moda {
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 25px;
+line-height: 39px;
+display: flex;
+align-items: center;
+text-align: center;
+margin-top: 100px;
+color: #000000;
+text-decoration: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
