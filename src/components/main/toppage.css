@@ -1,21 +1,10 @@
 /* スライドショー */
 .slideshow {
-    margin: 0 ;
-  }
+  margin: 0 -40px;
+}
   .slideshow img {
-      width: 30vw;/*スライダー内の画像を60vwにしてレスポンシブ化*/
-      height: auto;
+      width: 100%;
   }
-  .slideshow .slick-slide {
-      transform: scale(0.8);/*左右の画像のサイズを80%に*/
-      transition: all .5s;/*拡大や透過のアニメーションを0.5秒で行う*/
-      opacity: 0.5;/*透過50%*/
-  }
-  .slideshow .slick-slide.slick-center{
-      transform: scale(1);/*中央の画像のサイズだけ等倍に*/
-      opacity: 1;/*透過なし*/
-  }
-
   .txt-hide {
     overflow: hidden;
     max-height: 0;
@@ -105,16 +94,6 @@
   
   /*矢印の設定*/
   /*戻る、次へ矢印の位置*/
-  .slideshow .slick-prev, .slick-next {
-    position: absolute;/*絶対配置にする*/
-    top: 42%;
-    cursor: pointer;/*マウスカーソルを指マークに*/
-    outline: none;/*クリックをしたら出てくる枠線を消す*/
-    border-top: 2px solid #666;/*矢印の色*/
-    border-right: 2px solid #666;/*矢印の色*/
-    height: 15px;
-    width: 15px;
-}
 .slider .slick-prev, .slick-next {
     position: absolute;/*絶対配置にする*/
     top: 42%;
