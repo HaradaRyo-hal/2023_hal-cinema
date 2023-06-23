@@ -57,7 +57,7 @@ const Home = () => {
         <Slider
           autoplay={true} // 自動再生を有効にする
           autoplaySpeed={0} // 自動再生の速度を設定する（ミリ秒単位）
-          speed={10000}
+          speed={5000}
           cssEase="linear"
           infinite={true} // 無限ループする
           slidesToShow={1} // 表示するスライドの数
