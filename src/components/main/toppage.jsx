@@ -51,18 +51,29 @@ const Home = () => {
     setVisibleCount(visibleCount + 5);
   };
 
+
+  const images = [
+    { imageUrl: 'images/news1.jpg', text: 'Image 1' },
+    { imageUrl: 'images/news2.jpg', text: 'Image 2' },
+    { imageUrl: 'images/news3.jpg', text: 'Image 3Image 3Image 3Image 3Image 3Image 3Image 3Image 3Image 3' },
+    { imageUrl: 'images/news3.jpg', text: 'Image 4' },
+    { imageUrl: 'images/news3.jpg', text: 'Image 5' },
+    { imageUrl: 'images/news3.jpg', text: 'Image 6' },
+  ];
+
   return (
       <main>
         <Slider
           autoplay={true} // 自動再生を有効にする
-          autoplaySpeed={5000} // 自動再生の速度を設定する（ミリ秒単位）
+          autoplaySpeed={1000} // 自動再生の速度を設定する（ミリ秒単位）
           infinite={true} // 無限ループする
           slidesToShow={1} // 表示するスライドの数
           slidesToScroll={1} // スクロールするスライドの数
-          prevArrow={<div className="slick-prev"></div>} // 前のスライドに移動するボタンの要素
-          nextArrow={<div className="slick-next"></div>} // 次のスライドに移動するボタンの要素
+          //prevArrow={<div className="slick-prev"></div>} // 前のスライドに移動するボタンの要素
+          //nextArrow={<div className="slick-next"></div>} // 次のスライドに移動するボタンの要素
           centerMode={true} // 現在のスライドを中央に配置する
           variableWidth={true} // スライドの幅を可変にする
+          arrows={false}
           dots={true} // ドットインジケーターを表示する
           className="slideshow" // スライダーのクラス名
         >
@@ -76,19 +87,16 @@ const Home = () => {
      
     <div className="news_main">
       <h1>NEWS</h1>
-      <div className="news_event">
-        {newsData.slice(0, visibleCount).map((news, index) => (
-          <div className="news_box" key={index}>
-            <div className="news_date">{news.date}</div>
-            <div className="news_list">{news.content}</div>
+      <div>
+      <div className="image-gallery-container">
+        {images.map((image, index) => (
+          <div key={index} className="image-item">
+            <img src={image.imageUrl} alt="Image" className="image" />
+            <p className="image-text">{image.text}</p>
           </div>
         ))}
       </div>
-      {visibleCount < newsData.length && (
-        <button className="view_more_button" onClick={handleClick}>
-          view more	&#9661;
-        </button>
-      )}
+    </div>
     </div>
 
 
