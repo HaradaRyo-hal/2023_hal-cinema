@@ -53,34 +53,24 @@ const Home = () => {
 
   return (
       <main>
-
         <Slider
           autoplay={true} // 自動再生を有効にする
-          autoplaySpeed={0} // 自動再生の速度を設定する（ミリ秒単位）
-          speed={5000}
-          cssEase="linear"
+          autoplaySpeed={5000} // 自動再生の速度を設定する（ミリ秒単位）
           infinite={true} // 無限ループする
           slidesToShow={1} // 表示するスライドの数
           slidesToScroll={1} // スクロールするスライドの数
-          swipe={false} // 操作による切り替えはさせない
-          arrows={false} //矢印非表示
-          pauseOnFocus={false} //スライダーをフォーカスした時にスライドを停止させるか
-          pauseOnHover={false} //スライダーにマウスホバーした時にスライドを停止させるか
+          prevArrow={<div className="slick-prev"></div>} // 前のスライドに移動するボタンの要素
+          nextArrow={<div className="slick-next"></div>} // 次のスライドに移動するボタンの要素
           centerMode={true} // 現在のスライドを中央に配置する
+          variableWidth={true} // スライドの幅を可変にする
+          dots={true} // ドットインジケーターを表示する
           className="slideshow" // スライダーのクラス名
         >
-        <div className="swiper-slide">
-          <img src="images/_2a815abbd6.webp" alt="画像1" />
-        </div>
-        <div className="swiper-slide">
-          <img src="images/_7b2fe27c66.webp" alt="画像2" />
-        </div>
-        <div className="swiper-slide">
-          <img src="images/00.jpg" alt="画像3" />
-        </div>
-        <div className="swiper-slide">
-          <img src="images/20230512_WNA79icxSCcg.jpg" alt="画像4" />
-        </div>
+          <div><img src="images/konan2.jpg" alt="" /></div>
+          <div><img src="images/mario.jpg" alt="" /></div>
+          <div><img src="images/otona.jpg" alt="" /></div>
+          <div><img src="images/rohan.jpg" alt="" /></div>
+          <div><img src="images/tokyo.jpg" alt="" /></div>
         </Slider>
 
      
