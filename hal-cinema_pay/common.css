@@ -1,141 +1,135 @@
+/* 全体の設定 */
 html {
-    margin: 0 auto;
-    background-color: whitesmoke;
     font-family: "Yu Gothic";
     background-color: lightgray;
 }
-main{
+body{
+    margin: 0;
+    width: 60%;
     padding: 0;
-    box-sizing: border-box;
-    min-height: auto;
     text-align: center;
     margin: 0 auto;
-    width: 60%;
     background-color: #fff;
 }
 
+
+/* 共通のheaderの設定 */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 60%;
     margin: 0 auto;
     background-color: #fff;
+    border-bottom: 1px solid#bdbdbd;
+}
+header img{
+    margin: 30px;
 }
 
-.progressbar {
-    width: 100%;
-    position: relative;
-    margin: 0;
-    padding: 0;
+.stepbar {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-.progressbar li {
     position: relative;
-    list-style-type: none;
+    padding: 0 30px 0 0;
     text-align: center;
-    text-transform: uppercase;
-    width: 20%;
-    color: #aaaaaa !important;
-    font-weight: bold;
 }
-
-.progressbar li:before {
-    display: block;
-    width: 18px;
-    height: 18px;
-    margin: 7px auto 20px auto;
-    content: '';
-    text-align: center;
-    border-radius: 50%;
-    background-color: #aaaaaa !important;
+.stepbar li {
+    font-size: 12px;
+    font-weight: 500;
+    list-style: none;
+    padding-left: 50px;
+    position: relative;
+    max-width: 100px;
 }
-
-.progressbar li:after {
+.stepbar li:after {
+    background-color: #BDBDBD;
+    content: "";
+    height: 3px;
     position: absolute;
-    top: 15px;
-    left: -50%;
-    width: 100%;
-    height: 2px;
-    content: '';
-    background-color: #000000 !important;
-    z-index: 0;
+    top: 7px;
+    right: 28px;
+    width: 90px;
 }
-
-.progressbar li:first-child:after {
-    content: none;
+.stepbar li:first-child:after {
+    display: none;
 }
-
-.progressbar li.active,
-.progressbar li.complete {
-    color: #0070BD !important;
-}
-
-.progressbar li.active:before,
-.progressbar li.complete:before {
-    background-color: #0070BD !important;
-}
-
-.progressbar li.active:after,
-.progressbar li.complete:after {
-    background-color: #0070BD !important;
-}
-
-.next {
-    margin: 0 0 60px 0;
-    padding-top: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.next a {
-    text-decoration: none;
-    padding: 30px 100px;
-    border-radius: 5px;
+.stepbar li span {
+    background-color: #BDBDBD;
+    border-radius: 50%;
     color: #fff;
-    font-size: 1.3rem;
-    background: rgba(0, 209, 255, 0.8);
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+    margin-bottom: 4px;
+    line-height: 32px;
+    text-align: center;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    z-index: 5;
+    position: relative;
+}
+.stepbar .done:after {
+    background-color: #E65100;
+}
+.stepbar .done span {
+    background-color: #E65100;
 }
 
-.next:hover{
-    opacity: 0.8;
-}
 
-.back {
+/* main内の共通の設定 */
+main{
+    width: 90%;
+    margin: 0 auto;
+}
+h2 {
+    font-size: 24px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+.main_view p{
+    font-size: 16px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.back button {
-    background: none;
+
+/* 次へのボタン設定 */
+.next input{
+    text-decoration: none;
+    color: #fff;
+    font-size: 21px;
+    padding: 20px 150px;
+    margin: 50px 0 70px 0;
     border: none;
-    margin: 0;
-    cursor: pointer;
-    outline: none;
-    font-size: 2rem;
-    vertical-align: top;
+    border-radius: 10px;
+    background-color: #019fe8;
+    box-shadow: 0 5px 0#0084b2;
+}
+.next input:hover{
+    background-color: #0084b2;
 }
 
-ul {
-    margin: 40px 0 !important;
-}
 
+/* 戻るボタン */
 .moda {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px 0;
-    transform: translateY(-30px);
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
-    font-size: 25px;
+    font-size: 21px;
     color: #000000;
     text-decoration: none;
+    margin: 0 auto 10px auto;
+    
+    border: 1px solid #000;
+    border-radius: 10px;
+    box-shadow: 0 1px 0 #000;
+    width: 100px;
+}
+.moda:hover{
+    background-color: #eee;
 }
 
 /* フッターの設定 */
@@ -147,39 +141,29 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 30px 0 0 0;
 }
-
-.container {
-    max-width: 960px;
-    margin: 0 auto;
-}
-
-.container p {
-    margin: 0;
-}
-
 .container ul {
     list-style: none;
     padding: 0;
     margin-top: 10px;
 }
-
 .container ul li {
     display: inline-block;
     margin-right: 10px;
 }
-
 .container ul li:last-child {
     margin-right: 0;
 }
-
 .container ul li a {
     color: #fff;
     text-decoration: none;
     margin: 20px;
     font-size: 1rem;
 }
-
 .container ul li a:hover{
     opacity: 0.5;
+}
+.container p{
+    font-size: 12px;
 }
