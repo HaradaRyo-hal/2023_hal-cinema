@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../common.css" />
-    <link rel="stylesheet" href="../common.js" />
     <link rel="stylesheet" href="./kounyuu_zaseki.css" />
+    <script src="../common.js"></script>
 
     <title>1.座席選択</title>
   </head>
@@ -525,17 +525,16 @@
         </p>
       </div>
 
-      <script src="../common.js"></script>
-      <form id="myForm" onsubmit="return validateForm(event)">
+      <form action="../2.券種/step2.html" onsubmit="return checkForm(event)">
         <div class="doui">
-          <input type="checkbox" id="myCheckbox" name="myCheckbox" required />
+          <input type="checkbox" id="myCheckbox" />
           <label for="myCheckbox">利用規約に同意する</label>
         </div>
         <div class="next">
-          <input type="submit" value="次へ" />
+          <input type="submit" value="送信" />
         </div>
       </form>
-
+      
       <div>
         <a href="#" class="moda">◀戻る</a>
       </div>

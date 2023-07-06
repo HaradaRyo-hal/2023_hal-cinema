@@ -1,104 +1,77 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <title>4.確認画面</title>
-    <link rel="stylesheet" type="text/css" href="styles.css" />
-    <link rel="stylesheet" type="text/css" href="../common.css" />
-  </head>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../common.css" />
+  <link rel="stylesheet" href="../common.js" />
+  <link rel="stylesheet" href="./styles.css" />
+  <title>4.確認画面</title>
+</head>
 
   <body>
-    <header>
-      <img src="../images/logo.png" class="logo" />
-      <ul class="progressbar">
-        <li class="complete">座席選択</li>
-        <li class="complete">券種選択</li>
-        <li class="active">情報入力</li>
-        <li>購入完了</li>
-      </ul>
-    </header>
 
-    <main class="main">
-      <div>購入内容確認</div>
-      <div class="m1">まだ購入は確定していません</div>
-      <div class="m2">
-        ご記入内容を確認していただき「購入完了」ボタンを押して購
-      </div>
-      <div class="m2">入を完了させてください。</div>
+      <header>
+          <img src="../images/logo.png" class="logo" />
+          <div class="stepbar-row">
+              <ol class="stepbar">
+                  <li class="done"><span></span><br />座席選択</li>
+                  <li class="done"><span></span><br />券種選択</li>
+                  <li class="done"><span></span><br />情報入力</li>
+                  <li class="done"><span></span><br />確認画面</li>
+                  <li><span></span><br />購入完了</li>
+              </ol>
+          </div>
+      </header>
 
-      <section class="sec01">
-        <div class="buy-info">作品情報</div>
-        <div class="box">
-          <div class="box-item">
-            <p>スクリーン</p>
-            <span class="data-display"></span>
-          </div>
-          <div class="box-item">
-            <p>作品名</p>
-            <span class="data-display"></span>
-          </div>
-          <div class="box-item">
-            <p>鑑賞日時</p>
-            <span class="data-display"></span>
-          </div>
-          <div class="box-item">
-            <p>座席</p>
-            <span class="data-display"></span>
-          </div>
-        </div>
-      </section>
 
-      <section class="sec02">
-        <div class="buy-info">購入情報</div>
-        <div class="box">
-          <div class="box-item">
-            <p>お名前（カタカナ）</p>
-            <span class="data-display"></span>
-          </div>
-          <div class="box-item">
-            <p>メールアドレス</p>
-            <span class="data-display"></span>
-          </div>
-          <div class="box-item">
-            <p>電話番号</p>
-            <span class="data-display"></span>
-          </div>
-          <div class="box-item">
-            <p>カード番号</p>
-            <span class="data-display"></span>
-          </div>
-        </div>
-      </section>
+      <main>
 
-      <section class="sec03">
-        <a href="../購入完了/index.html">
-          <button type="button" class="custom-button">購入確定</button>
-        </a>
-      </section>
+          <h2></h2>
+                
+          <h2>お客様情報確認</h2>
+          <ul class="confirmation-list">
+            <li><span>お名前（カタカナ）:</span> <?php echo $_POST['name']; ?></li>
+            <li><span>メールアドレス:</span> <?php echo $_POST['email']; ?></li>
+            <li><span>電話番号:</span> <?php echo $_POST['phone']; ?></li>
+            <li><span>カード番号:</span> <?php echo $_POST['cardNumber']; ?></li>
+          </ul>
+          <ul class="confirmation-list">
+            <li><span>ご利用金額:</span> <?php echo $_POST['amount']; ?></li>
+            <li><span>有効期限:</span> <?php echo $_POST['expiry']; ?></li>
+            <li><span>セキュリティーコード:</span> <?php echo $_POST['securityCode']; ?></li>
+            <li><span>カード名義人:</span> <?php echo $_POST['cardHolderName']; ?></li>
+          </ul>
 
-      <section class="sec04">
-        <div>
-          <a href="../kenshu/kenshu.html" class="moda">◀戻る</a>
-        </div>
-      </section>
-    </main>
+          <form action="../5.購入完了/step5.html">
+              <div class="next">
+                  <input type="submit" value="購入する" />
+              </div>
+          </form>
+
+          <div>
+              <a href="#" class="moda">◀戻る</a>
+          </div>
+
+      </main>
+
+      <footer>
+          <div class="container">
+              <img src="../images/logo2.png" alt="画像の説明" />
+              <ul>
+                  <li><a href="#">会社概要</a></li>
+                  <li><a href="#">特定商取引法に基づく表記</a></li>
+                  <li><a href="#">利用規約</a></li>
+                  <li><a href="#">プライバシーポリシー</a></li>
+                  <li><a href="#">サイトマップ</a></li>
+                  <p>
+                      Copy right © 2023 HAL CINEMA<br />
+                      All rights reserved.
+                  </p>
+              </ul>
+          </div>
+      </footer>
   </body>
-
-  <footer>
-    <div class="container">
-      <img src="../images/logo2.png" alt="画像の説明" />
-      <ul>
-        <li><a href="#">会社概要</a></li>
-        <li><a href="#">特定商取引法に基づく表記</a></li>
-        <li><a href="#">利用規約</a></li>
-        <li><a href="#">プライバシーポリシー</a></li>
-        <li><a href="#">サイトマップ</a></li>
-        <br /><br /><br />
-        <p>
-          Copy right © 2023 HAL CINEMA<br />
-          All rights reserved.
-        </p>
-      </ul>
-    </div>
-  </footer>
 </html>

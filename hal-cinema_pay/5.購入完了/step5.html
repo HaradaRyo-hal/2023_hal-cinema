@@ -1,45 +1,57 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <title>5.購入完了</title>
-    <link rel="stylesheet" type="text/css" href="../common.css" />
-    <link rel="stylesheet" type="text/css" href="styles.css" />
-  </head>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../common.css" />
+  <link rel="stylesheet" href="../common.js" />
+  <link rel="stylesheet" href="./styles.css" />
+  <title>5.購入完了</title>
+</head>
 
   <body>
+
     <header>
-      <img src="../images/logo.png" class="logo" />
-      <nav>
-        <ul class="progressbar">
-          <li class="complete">座席選択</li>
-          <li class="complete">券種選択</li>
-          <li class="complete">情報入力</li>
-          <li class="active">購入完了</li>
-        </ul>
-      </nav>
+        <img src="../images/logo.png" class="logo" />
+        <div class="stepbar-row">
+            <ol class="stepbar">
+                <li class="done"><span></span><br />座席選択</li>
+                <li class="done"><span></span><br />券種選択</li>
+                <li class="done"><span></span><br />情報入力</li>
+                <li class="done"><span></span><br />確認画面</li>
+                <li class="done"><span></span><br />購入完了</li>
+            </ol>
+        </div>
     </header>
-    <main class="main">
-      <div>購入完了</div>
-      <div class="m1">購入が完了しました。ご利用ありがとうございました。</div>
-      <a href="#" class="moda">◀戻る</a>
+
+    <main>
+
+        <h2>購入完了</h2>
+        <div class="m1">
+          購入が完了しました。ご利用ありがとうございました。
+        </div>
+        <a href="#" class="moda">◀戻る</a>
+
     </main>
+
+    <footer>
+        <div class="container">
+            <img src="../images/logo2.png" alt="画像の説明" />
+            <ul>
+                <li><a href="#">会社概要</a></li>
+                <li><a href="#">特定商取引法に基づく表記</a></li>
+                <li><a href="#">利用規約</a></li>
+                <li><a href="#">プライバシーポリシー</a></li>
+                <li><a href="#">サイトマップ</a></li>
+                <p>
+                    Copy right © 2023 HAL CINEMA<br />
+                    All rights reserved.
+                </p>
+            </ul>
+        </div>
+    </footer>
+
   </body>
-  <footer>
-    <div class="container">
-      <img src="../images/logo2.png" alt="画像の説明" />
-      <ul>
-        <li><a href="#">会社概要</a></li>
-        <li><a href="#">特定商取引法に基づく表記</a></li>
-        <li><a href="#">利用規約</a></li>
-        <li><a href="#">プライバシーポリシー</a></li>
-        <li><a href="#">サイトマップ</a></li>
-        <br /><br /><br />
-        <p>
-          Copy right © 2023 HAL CINEMA<br />
-          All rights reserved.
-        </p>
-      </ul>
-    </div>
-  </footer>
 </html>

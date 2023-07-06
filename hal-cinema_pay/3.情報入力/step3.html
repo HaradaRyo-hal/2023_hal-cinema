@@ -10,77 +10,153 @@
     <title>3.情報入力</title>
   </head>
 
-<body>
+    <body>
 
-    <main class="main">
-        <div>購入者情報入力</div>
-        <div class="m1">必須項目を入力し「次へ」ボタンを押してください。</div>
-
-        <section class="sec01">
-            <div class="buy-info">お名前（カタカナ）</div>
-            <div class="box">
-                    <p>　　　　セイ　　　　　　　　　　　　　　　メイ</p>
-                    <p><input type="text" id='name' name="name"><input type="text" id='name-2' name="name-2"></p>
-
-
-
-
-
+        <header>
+            <img src="../images/logo.png" class="logo" />
+            <div class="stepbar-row">
+                <ol class="stepbar">
+                    <li class="done"><span></span><br />座席選択</li>
+                    <li class="done"><span></span><br />券種選択</li>
+                    <li class="done"><span></span><br />情報入力</li>
+                    <li><span></span><br />確認画面</li>
+                    <li><span></span><br />購入完了</li>
+                </ol>
             </div>
-        </section>
+        </header>
 
-        <section class="sec02">
-            <div class="mail">メールアドレス</div>
-            <div class="box-2">
-                <input type="text" id='mail' name="mail">
-               <p>メールアドレス確認確認</p>
-                <input type="text" id='mail' name="mail">
+
+        <main>
+
+          <h2>お客様情報入力</h2>
+
+          <div class="user_box">
+
+            <div class="title_box">
+              <div class="title">お名前（カタカナ）</div>
+              <div class="red_text">入力必須</div>
             </div>
-        </section>
+            <form action="" method="POST">
+              <div class="form-group">
+                <div class="sei">
+                  <label for="lastName">セイ</label>
+                  <input type="text" id="lastName" name="lastName" placeholder="例：ヤマダ" required>
+                </div>
+                <div class="mei">
+                  <label for="firstName">メイ</label>
+                  <input type="text" id="firstName" name="firstName" placeholder="例：タロウ" required>
+                </div>
+              </div>
+            </form>
 
-        <section class="sec03">
-            <div class="phone">電話番号</div>
-            <div class="box-3">
-                <input type="text" id='phone' name="phone">
+            <div class="title_box">
+              <div class="title">メールアドレス</div>
+              <div class="red_text">入力必須</div>
             </div>
-        </section>
+            <form action="" method="POST">
+              <div class="form-email">
+                <input type="email" id="email" name="email" placeholder="例：example@example.com" required>
+                <label for="email" class="emaillabel">メールアドレス確認</label>
+                <input type="email" id="email" name="email" placeholder="例：example@example.com" required>
+              </div>
+            </form>
 
-        <section class="sec04">
-            <div class="pay">お支払情報</div>
-            <div class="box-4">
-                <p>ご利用金額　<input type="text" id='pay' name="pay"></p>
-                <p>カード番号　<input type="text" id='pay' name="pay"></p>
-                <p>有効期限　　　　　<input type="text" id='pay-2' name="pay">　　月<input type="text" id='pay-2' name="pay">　　年</p>
-                <p>セキュリティーコード　<input type="text" id='pay-3' name="pay"></p>
-                <p>カード名義人<input type="text" id='pay' name="pay"></p><br>
+            
+            <div class="title_box">
+              <div class="title">電話番号</div>
+              <div class="red_text">入力必須</div>
             </div>
-        </section>
+            <form action="" method="POST">
+              <div class="form-email">
+                <input type="email" id="email" name="email" placeholder="例：01234567890" required>
+              </div>
+            </form>
+          </div>
 
+          <div class="form_box">
+            <div class="title_box">
+              <div class="title">お支払情報</div>
+              <div class="red_text">入力必須</div>
+            </div>
+            <div class="title_box">
+              <div class="text">クレジットカード決済の必要事項を入力ください</div>
+            </div>
 
-        <section class="sec10">
-            <a href="../kakunin/kakunin.html">
-                <button type="button" class="custom-button">次へ</button>
-            </a>
-        </section>
+            <form action="confirmation.html" method="POST">
+              <div class="form-card">
+                <label for="cardNumber">カード番号</label>
+                <input id="cardNumber" name="cardNumber" maxlength="16" placeholder="例：1234-5678-9012-3456" required>
+              </div>
 
-        </section>
+              <div class="form-card">
+                <label for="expiry">有効期限</label>
+                <select id="expiry" name="expiryMonth" placeholder="01" required>
+                  <option value="01">01</option>
+                  <option value="02">02</option>
+                  <option value="04">04</option>
+                  <option value="05">05</option>
+                  <option value="06">06</option>
+                  <option value="07">07</option>
+                  <option value="08">08</option>
+                  <option value="09">09</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                  <!-- 他の月のオプションを追加 -->
+                </select>
+                <select name="expiryYear"  placeholder="2023" required>
+                  <option value="2023">2023</option>
+                  <option value="2024">2024</option>
+                  <option value="2024">2025</option>
+                  <option value="2024">2026</option>
+                  <option value="2024">2027</option>
+                  <option value="2024">2028</option>
+                  <option value="2024">2029</option>
+                  <option value="2024">2030</option>
+                  <option value="2024">2031</option>
+                  <option value="2024">2032</option>
+                  <option value="2024">2033</option>
+                  <option value="2024">2034</option>
+                  <option value="2024">2035</option>
+                  <option value="2024">2036</option>
+                  <option value="2024">2037</option>
+                  <option value="2024">2038</option>
+                  <option value="2024">2039</option>
+                  <option value="2024">2040</option>
+                  <!-- 他の年のオプションを追加 -->
+                </select>
+              </div>
 
-        <section class="sec04">
+              <div class="form-card">
+                <label for="securityCode">セキュリティーコード</label>
+                <input type="text" id="securityCode" name="securityCode" placeholder="例：123" maxlength="3" required>
+              </div>
 
-    <div class="back">
-      <button type="button" onclick="history.back()">
-        <img src="../images/back.jpg" alt="戻る" />
-      </button>
-      <button type="button" onclick="history.back()">戻る</button>
-    </div>
-        </section>
+              <div class="form-card">
+                <label for="cardHolderName">カード名義人</label>
+                <input type="text" id="cardHolderName" name="cardHolderName" 
+                  placeholder="例：YAMADA TARO" pattern="[A-Z]+" required title="アルファベットのみ入力してください">
+              </div>
+            </form>
+          </div>
 
+        </main>
 
-    </main>
-
-
-
-</body>
-
-<footer></footer>
+        <footer>
+            <div class="container">
+                <img src="../images/logo2.png" alt="画像の説明" />
+                <ul>
+                    <li><a href="#">会社概要</a></li>
+                    <li><a href="#">特定商取引法に基づく表記</a></li>
+                    <li><a href="#">利用規約</a></li>
+                    <li><a href="#">プライバシーポリシー</a></li>
+                    <li><a href="#">サイトマップ</a></li>
+                    <p>
+                        Copy right © 2023 HAL CINEMA<br />
+                        All rights reserved.
+                    </p>
+                </ul>
+            </div>
+        </footer>
+    </body>
 </html>

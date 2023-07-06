@@ -1,22 +1,11 @@
-//step1.htmlのチェックボックス
-function validateForm(event) {
-  var checkbox = document.getElementById("myCheckbox");
-  if (!checkbox.checked) {
-    alert("利用規約に同意するにチェックを入れてください。");
-    event.preventDefault(); // フォームのデフォルトの送信を阻止
-  } else {
-    // 別のページに遷移する処理を記述
-    event.preventDefault();
-    location.href = "./券種/step2.html";
-  }
-}
+
 
 
 //step1.html座席予約システム処理
   // 選択された座席の数をカウントする変数
   var selectedCount = 0;
 
-  // 選択された座席を格納する配列
+  // 選択された座席(seatID)を格納する配列
   var selectedSeats = [];
 
   // 選択された座席のクラスを切り替える関数
@@ -51,4 +40,9 @@ function validateForm(event) {
 
     //テスト用。コンソールにIDが表示される。例：A1,B3,G11 selectedSeatsに格納されてるはず。
     console.log("選択された座席のID:", seatID);
+    console.log("選択された座席番号一覧:", selectedSeats);
+
+    
+// ローカルストレージに配列を保存
+    localStorage.setItem('selectedSeats', JSON.stringify(selectedSeats));
   }

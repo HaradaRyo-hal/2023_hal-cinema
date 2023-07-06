@@ -6,58 +6,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./kenshu.css" />
     <link rel="stylesheet" href="../common.css" />
+    <script src="../common.js"></script>
     <title>2.券種選択</title>
   </head>
   <body>
     <header>
       <img src="../images/logo.png" class="logo" />
-      <nav>
-        <ul class="progressbar">
-          <li class="complete">座席選択</li>
-          <li class="active">券種選択</li>
-          <li>情報入力</li>
-          <li>購入完了</li>
-        </ul>
-      </nav>
+      <div class="stepbar-row">
+        <ol class="stepbar">
+            <li class="done"><span></span><br />座席選択</li>
+            <li class="done"><span></span><br />券種選択</li>
+            <li><span></span><br />情報入力</li>
+            <li><span></span><br />確認画面</li>
+            <li><span></span><br />購入完了</li>
+        </ol>
+    </div>
     </header>
 
-    <h2>券種選択</h2>
+    <main>
 
-    <div class="setumei">
-      <p>ご希望の券種を選択して「次へ」ボタンを押してください。</p>
-    </div>
+      <h2></h2>
 
-    <div class="box01">
-      <div class="nenrei">
-        <div class="ippan">
-          <p>一般　　　　　　　　　　　　　　　　　　　　　　　￥1,900</p>
+      <div id="seatList"></div>
+
+      <script>
+        // ローカルストレージから配列を取得
+        var selectedSeatsString = localStorage.getItem('selectedSeats');
+        var selectedSeats = JSON.parse(selectedSeatsString);
+
+        // 配列を画面に表示
+        var seatList = document.getElementById('seatList');
+        for (var i = 0; i < selectedSeats.length; i++) {
+          var seat = selectedSeats[i];
+          var ticketTypeSelect = document.createElement('select');
+          ticketTypeSelect.name = 'ticketType-' + seat;
+
+          // チケットの種類を追加
+          var ticketTypes = ['一般', '学生', 'シニア'];
+          var defaultOption = document.createElement('option');
+          defaultOption.value = '';
+          defaultOption.text = '選択してください';
+          ticketTypeSelect.appendChild(defaultOption);
+
+          for (var j = 0; j < ticketTypes.length; j++) {
+            var option = document.createElement('option');
+            option.value = ticketTypes[j];
+            option.text = ticketTypes[j];
+            ticketTypeSelect.appendChild(option);
+          }
+
+          var seatContainer = document.createElement('div');
+          seatContainer.innerHTML = seat + ": ";
+          seatContainer.appendChild(ticketTypeSelect);
+          seatList.appendChild(seatContainer);
+        }
+
+      </script>
+        
+      <form action="../3.情報入力/step3.html">
+        <div class="next">
+          <input type="submit" value="次へ" />
         </div>
-        <div class="daigakusei">
-          <p>大学生　　　　　　　　　　　　　　　　　　　　　　￥1,500</p>
-        </div>
-        <div class="shoutyuukou">
-          <p>小学生・中学生・高校生　　　　　　　　　　　　　　 ￥1,000</p>
-        </div>
-        <div class="youji">
-          <p>幼児(3歳以下)　　　　　　　　　　　　　　　　　　　 無料</p>
-        </div>
+      </form>
+
+      <div>
+        <a href="#" class="moda">◀戻る</a>
       </div>
-    </div>
 
-    <div class="next">
-      <a href="../購入内容確認/index.html">次へ</a>
-    </div>
+    </main>
 
-    <!-- <div class="back">
-      <button type="button" onclick="history.back()">
-        <img src="../images/back.jpg" alt="戻る" />
-      </button>
-      <button type="button" onclick="history.back()">戻る</button>
-    </div> -->
-
-    <div>
-      <a href="../kounyuuzaseki/kounyuu_zaseki.html" class="moda">◀戻る</a>
-    </div>
   </body>
 
   <footer>
@@ -69,7 +86,6 @@
         <li><a href="#">利用規約</a></li>
         <li><a href="#">プライバシーポリシー</a></li>
         <li><a href="#">サイトマップ</a></li>
-        <br /><br /><br />
         <p>
           Copy right © 2023 HAL CINEMA<br />
           All rights reserved.

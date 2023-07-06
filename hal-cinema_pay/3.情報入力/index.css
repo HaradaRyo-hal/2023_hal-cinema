@@ -1,275 +1,119 @@
-
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    margin: 30px 0 0 50px;
-}
-
-.links {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-}
-
-.links a {
-    text-decoration: none;
-    color: black;
-    position: relative;
-    margin-left: 40px;
-}
-
-.links a::after {
-    content: "";
-    display: block;
-    width: 10px;
-    height: 10px;
-    background: black;
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    border-radius: 50%;
-}
-
-.links::before {
-    content: "";
-    display: block;
-    height: 2px;
-    background: black;
-    position: absolute;
-    bottom: 18px;
-    left: 10%;
-    right: 10%;
-    margin-right: -48px;
-    margin-left: 210px;
-}
-
-.links .completed-link::after {
-    background: red;
-}
-
-.links .done-text {
-    color: red;
-}
-
-.main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 40px;
-}
-
-.main div{
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 25px;
-    line-height: 48px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-
-    color: #000000;
-}
-
-.main .m1{
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 30px;
-    line-height: 29px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    margin-top: 20px;
-    color: red;
-}
-
-
-.buy-info {
-   padding: 10px;
-}
-
-.box {
-    max-width: 650px;
-    min-width: 650px;
-    background: #D9D9D9;
-    border: 1px solid #000;
-    margin-top: 10px;
-    display: flex;
-    flex-direction: column;
-
-}
-
-.box p {
-    font-size: 1.3rem;
-    margin: 20px 100px 0 0;
-    min-width: 200px;
-    max-width: 650px;
-}
-
-#name {
-    position: relative;
-    left: 10px;
-    height: 30px;
-    width: 100px;
-}
-
-#name-2 {
-    position: relative;
-    left: 70px;
-    margin-left: 180px;
-    height: 30px;
-    width: 100px;
-    margin-bottom: 20px;
-}
-
-.box-2 {
-    max-width: 650px;
-    min-width: 650px;
-    background: #D9D9D9;
-    border: 1px solid #000;
-    margin-top: 10px;
-    display: flex;
-    flex-direction: column;
-
-}
-
-.box-2 p {
-    font-size: 1.3rem;
-    margin: 10px 0 10px 0;
-    min-width: 200px;
-    max-width: 650px;
-}
-
-#mail {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    height: 30px;
-    width: 500px;
-}
-
-.box-3 {
-    max-width: 650px;
-    min-width: 650px;
-    background: #D9D9D9;
-    border: 1px solid #000;
-    margin-top: 10px;
-    display: flex;
-    flex-direction: column;
-}
-
-#phone {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    height: 30px;
-    width: 500px;
-}
-
-.box-4 {
-    max-width: 650px;
-    min-width: 650px;
-    min-height: 50px;
-    background: #D9D9D9;
-    border: 1px solid #000;
-    margin-top: 10px;
-    display: flex;
-    flex-direction: column;
-}
-
-.box-4 p {
-    display: flex;
-    align-items: center;
-    position: relative;
-    right: 51px;
-    font-size: 1.2rem;
-}
-
-
-.box-4 p:nth-child(3) {
-    position: relative;
-    right: 92px;
-}
-
-box-4 p:nth-child(1) input[type="text"] {
-    position: relative;
-    left: 100px;
-}
-
-.box-4 p:nth-child(4) {
-    position: relative;
-    right: 10px;
-}
-
-#pay{
-    position: relative;
-    left: 92px;
-    height: 30px;
-    width: 350px;
-}
-
-#pay-2{
-    position: relative;
-    left: 20px;
-    vertical-align: 5px;
-    margin-left: 10px;
-    height: 30px;
-    width: 30px;
-}
-
-#pay-3{
-    position: relative;
-    left: 6px;
-    height: 30px;
-    width: 350px;
-}
-
-.sec10 {
-  width: 80px;
-  height: 80px;
+.title_box{
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 10px;
+  margin: 5px 0;
+  width: 100%;
+} 
+.title_box .title{
+  font-size: 21px;
+  font-weight: 600;
 }
-
-.custom-button {
-  background-color: #00D1FF;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
+.title_box .red_text{
+  background-color: red;
+  color: #fff;
+  font-weight: 600;
+  padding: 2px;
+  margin-left: 10px;
+}
+.title_box .text{
   font-size: 16px;
-  min-width: 300px;
-  height: 70px;
 }
-
-.custom-button:hover {
-  opacity: 0.8;
-}
-
-
-.moda{
-  top: 100px;
-  width: 80px;
-  height: 80px;
+.form_box .form-group{
   display: flex;
-  justify-content: center;
   align-items: center;
-  font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 25px;
-    color: #000000;
-    text-decoration: none;
-}
+  margin-bottom: 10px;
 
-.footer{
-margin: 0 0 0 100px;
 }
+  .form_box form{
+    background-color: #e9e9e9;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+  }
+  
+  .form-card {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px dashed lightgray;
+  }
+  .form-card:last-child{
+    margin-bottom: 0;
+    border-bottom: none;
+  }
+  
+  .form-card label {
+    width: 200px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 14px;
+  }
+  
+  .form-card input{
+    width: 500px;
+    text-align: left;
+    padding: 5px;
+    box-sizing: border-box;
+  }
+  .form-card select{
+    text-align: left;
+    padding: 5px;
+    box-sizing: border-box;
+  }
+  
+  .form-card input[type="submit"] {
+    width: auto;
+  }
+
+  .user_box{
+    width: 100%;
+  }
+
+  .user_box .form-group {
+    display: flex;
+    justify-content: center;
+    background-color: #e9e9e9;
+    margin-bottom: 30px;
+    padding: 20px;
+  }
+  
+  .user_box .form-group .sei,
+  .user_box .form-group .mei {
+    text-align: left;
+    width: 100%;
+    margin: 0 40px 0 0;
+  }
+  
+  .user_box .form-group .sei label,
+  .user_box .form-group .mei label {
+    display: block;
+    font-weight: 600;
+  }
+  
+  .user_box .form-group .sei input,
+  .user_box .form-group .mei input{
+    width: 50%;
+    margin: 0 10px;
+    padding: 8px;
+  }
+
+  .form-email{
+    display: flex;
+    text-align: left;
+    flex-direction: column;
+    background-color: #e9e9e9;
+    margin-bottom: 50px;
+    padding: 20px;
+  }
+  .form-email label{
+    font-weight: 600;
+  }
+  .form-email input{
+    width: 60%;
+    margin: 0 10px;
+    padding: 8px;
+  }
+  .emaillabel{
+    margin: 20px 0 5px 0;
+  }
