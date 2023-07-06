@@ -37,6 +37,10 @@
     margin-bottom: 20px;
     padding-bottom: 10px;
     border-bottom: 2px dashed lightgray;
+    position: relative;
+  }
+  .form-card:first-child{
+    padding-bottom: 30px;
   }
   .form-card:last-child{
     margin-bottom: 0;
@@ -118,5 +122,8 @@
     margin: 20px 0 5px 0;
   }
 .haihun{
+    position: absolute;
+    top: 20px;
+    left: 200px;
     font-size: 10px;
   }
