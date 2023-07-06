@@ -86,6 +86,7 @@
               <div class="form-card">
                 <label for="cardNumber">カード番号</label>
                 <input id="cardNumber" name="cardNumber" maxlength="16" placeholder="例：1234-5678-9012-3456" required>
+                <p class="haihun">※半角数字、ハイフン「-」なしで入力してください。</p>
               </div>
 
               <div class="form-card">
@@ -104,6 +105,7 @@
                   <option value="12">12</option>
                   <!-- 他の月のオプションを追加 -->
                 </select>
+                <p>月</p>
                 <select name="expiryYear"  placeholder="2023" required>
                   <option value="2023">2023</option>
                   <option value="2024">2024</option>
@@ -125,6 +127,7 @@
                   <option value="2024">2040</option>
                   <!-- 他の年のオプションを追加 -->
                 </select>
+                <p>年</p>
               </div>
 
               <div class="form-card">
@@ -138,6 +141,16 @@
                   placeholder="例：YAMADA TARO" pattern="[A-Z]+" required title="アルファベットのみ入力してください">
               </div>
             </form>
+          </div>
+            
+          <form action="../4.購入内容確認/step4.html">
+            <div class="next">
+              <input type="submit" value="次へ" />
+            </div>
+          </form>
+
+          <div>
+            <a href="#" class="moda">◀戻る</a>
           </div>
 
         </main>
