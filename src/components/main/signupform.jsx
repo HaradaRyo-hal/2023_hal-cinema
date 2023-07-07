@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
-const SignupForm = () => {
+const SignUpForm = () => {
   const [formData, setFormData] = useState({
+    f_user_id: '',//ユーザーID
     f_login_name: '', //名前
     f_login_password: '', // パスワード
     f_news_subscribed: false, //メルマガ いるかいらないか？
     f_birthday: '', // 誕生日
-    f_postal_code: '', //郵便番号〒400-0000
+    f_postal_code: '', //郵便番号〒000-0000
     f_prefecture: '', //都道府県
     f_city: '', //市町村
     f_address1: '', //何丁目番地
@@ -48,7 +50,17 @@ const SignupForm = () => {
   return (
     <form onSubmit={handleSubmit}>
       {/* 各フィールドの入力フィールドを追加 */}
-      <label htmlFor="f_login_name">Login Name:</label>
+      <label htmlFor="f_user_id">ユーザーID</label>
+      <input
+        type="text"
+        id="f_user_id"
+        name="f_user_id"
+        value={formData.f_user_id}
+        onChange={handleChange}
+        required
+      />
+
+      <label htmlFor="f_login_name">ユーザー名</label>
       <input
         type="text"
         id="f_login_name"
@@ -58,7 +70,7 @@ const SignupForm = () => {
         required
       />
 
-      <label htmlFor="f_login_password">Login Password:</label>
+      <label htmlFor="f_login_password">パスワード:</label>
       <input
         type="password"
         id="f_login_password"
@@ -170,8 +182,10 @@ const SignupForm = () => {
       />
 
       <button type="submit">Submitここで登録する</button>
+
+      <Link to="/login">ログイン画面に戻る</Link>
     </form>
   );
 };
 
-export default SignupForm;
+export default SignUpForm;

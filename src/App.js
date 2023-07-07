@@ -1,5 +1,5 @@
 import Sidebar from "./components/sidebar/Sidebar.js";
-//import Header from "./components/header/header.js";
+import Header from "./components/header/header.js";
 import Footer from "./components/footer/footer.js";
 
 import Home from "./components/main/toppage.jsx";
@@ -10,6 +10,7 @@ import Event from "./components/main/event.jsx";
 import Access from "./components/main/access.jsx";
 import Support from "./components/main/support.jsx";
 import Login from "./components/main/login.jsx";
+import SignUpForm from './components/main/signupform';
 
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
 
@@ -31,6 +32,7 @@ function App() {
               <Route path="/access"  element={<Access />}  />
               <Route path="/support"  element={<Support />}  />
               <Route path="/login"  element={<Login />}  />
+                <Route path="/signup"  element={<SignUpForm />}  />
             </Routes>
           </BrowserRouter>
         </div>
