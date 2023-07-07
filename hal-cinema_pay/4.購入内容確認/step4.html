@@ -27,12 +27,37 @@
       </header>
 
 
-      <main>
+      <main> 
+        <h1>入力内容の確認</h1>
 
-          <h2></h2>
-                
-          <h2>お客様情報確認</h2>
-
+        <h2>お名前（カタカナ）</h2>
+        <table>
+          <tr>
+            <th>セイ</th>
+            <td><?php echo $_POST['lastName']; ?></td>
+          </tr>
+          <tr>
+            <th>メイ</th>
+            <td><?php echo $_POST['firstName']; ?></td>
+          </tr>
+        </table>
+      
+        <h2>メールアドレス</h2>
+        <table>
+          <tr>
+            <th>メールアドレス</th>
+            <td><?php echo $_POST['email']; ?></td>
+          </tr>
+        </table>
+      
+        <h2>電話番号</h2>
+        <table>
+          <tr>
+            <th>電話番号</th>
+            <td><?php echo $_POST['phoneNumber']; ?></td>
+          </tr>
+        </table>
+      
           <form action="../5.購入完了/step5.html">
               <div class="next">
                   <input type="submit" value="購入する" />

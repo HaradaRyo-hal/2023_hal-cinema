@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../common.css" />
     <link rel="stylesheet" href="./index.css" />
+    
     <title>3.情報入力</title>
   </head>
 
@@ -30,8 +31,10 @@
 
           <h2>お客様情報入力</h2>
 
-          <div class="user_box">
+          <form action="process_form.php" method="POST">
 
+          </form>
+          <div class="user_box">
             <div class="title_box">
               <div class="title">お名前（カタカナ）</div>
               <div class="red_text">入力必須</div>
@@ -152,6 +155,7 @@
           <div>
             <a href="#" class="moda">◀戻る</a>
           </div>
+        </form>
 
         </main>
 
@@ -173,3 +177,26 @@
         </footer>
     </body>
 </html>
+<!-- process_form.php -->
+<?php
+// フォームデータを取得
+$lastName = $_POST['lastName'];
+$firstName = $_POST['firstName'];
+$email = $_POST['email'];
+$emailConfirmation = $_POST['emailConfirmation'];
+$securityCode = $_POST['securityCode'];
+$cardHolderName = $_POST['cardHolderName'];
+
+// フォームデータを次のページに渡すための処理を実行する（例：セッション変数を使用する）
+session_start();
+$_SESSION['lastName'] = $lastName;
+$_SESSION['firstName'] = $firstName;
+$_SESSION['email'] = $email;
+$_SESSION['emailConfirmation'] = $emailConfirmation;
+$_SESSION['securityCode'] = $securityCode;
+$_SESSION['cardHolderName'] = $cardHolderName;
+
+// 次のページにリダイレクト
+header("Location: ./step4.php");
+exit();
+?>
