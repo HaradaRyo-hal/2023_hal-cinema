@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="../common.css" />
   <link rel="stylesheet" href="../common.js" />
   <link rel="stylesheet" href="./styles.css" />
+  <link rel="stylesheet" href="../common.php" />
   <title>4.確認画面</title>
 </head>
 
@@ -27,64 +28,25 @@
       </header>
 
 
-      <main> 
-        <h1>入力内容の確認</h1>
-
-        <h2>お名前（カタカナ）</h2>
-        <table>
-          <tr>
-            <th>セイ</th>
-            <td><?php echo $_POST['lastName']; ?></td>
-          </tr>
-          <tr>
-            <th>メイ</th>
-            <td><?php echo $_POST['firstName']; ?></td>
-          </tr>
-        </table>
-      
-        <h2>メールアドレス</h2>
-        <table>
-          <tr>
-            <th>メールアドレス</th>
-            <td><?php echo $_POST['email']; ?></td>
-          </tr>
-        </table>
-      
-        <h2>電話番号</h2>
-        <table>
-          <tr>
-            <th>電話番号</th>
-            <td><?php echo $_POST['phoneNumber']; ?></td>
-          </tr>
-        </table>
-      
-          <form action="../5.購入完了/step5.html">
-              <div class="next">
-                  <input type="submit" value="購入する" />
-              </div>
-          </form>
-
-          <div>
-              <a href="#" class="moda">◀戻る</a>
-          </div>
+      <main>
 
       </main>
 
       <footer>
-          <div class="container">
-              <img src="../images/logo2.png" alt="画像の説明" />
-              <ul>
-                  <li><a href="#">会社概要</a></li>
-                  <li><a href="#">特定商取引法に基づく表記</a></li>
-                  <li><a href="#">利用規約</a></li>
-                  <li><a href="#">プライバシーポリシー</a></li>
-                  <li><a href="#">サイトマップ</a></li>
-                  <p>
-                      Copy right © 2023 HAL CINEMA<br />
-                      All rights reserved.
-                  </p>
-              </ul>
-          </div>
+        <div class="container">
+          <img src="../images/logo2.png" alt="画像の説明" />
+          <ul>
+            <li><a href="#">会社概要</a></li>
+            <li><a href="#">特定商取引法に基づく表記</a></li>
+            <li><a href="#">利用規約</a></li>
+            <li><a href="#">プライバシーポリシー</a></li>
+            <li><a href="#">サイトマップ</a></li>
+            <p>
+                Copy right © 2023 HAL CINEMA<br />
+                All rights reserved.
+            </p>
+          </ul>
+        </div>
       </footer>
   </body>
 </html>
