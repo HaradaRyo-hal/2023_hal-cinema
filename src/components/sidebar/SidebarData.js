@@ -53,7 +53,7 @@ export const SidebarData = [
   {
     title: "ログイン",
     subtitle: "Login",
-    link: "/Login",
+    link: "/login",
     icon: <LoginIcon/>,
   },
 ];

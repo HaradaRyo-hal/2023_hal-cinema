@@ -9,7 +9,7 @@ import Theater from "./components/main/theater.jsx";
 import Event from "./components/main/event.jsx";
 import Access from "./components/main/access.jsx";
 import Support from "./components/main/support.jsx";
-import Login from "./components/main/login.js";
+import Login from "./components/main/login.jsx";
 
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
 
