@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../common.css" />
     <link rel="stylesheet" href="./index.css" />
-    <link rel="stylesheet" href="../common.php" />
     
     <title>3.情報入力</title>
   </head>
@@ -33,7 +32,7 @@
           <h2>お客様情報入力</h2>
 
           <div class="user_box">
-            <form action="../common.php" method="POST">
+            <form action="../4.購入内容確認/step4.php" method="POST">
 
               <div class="title_box">
                 <div class="title">お名前（カタカナ）</div>
@@ -137,35 +136,10 @@
               </div>
 
               <div class="next">
-                <a href="../4.購入内容確認/step4.html">次へ</a>
+                <input type="submit" value="次へ">
               </div>
               
             </form>
-
-            <script>
-              // フォームが送信されたときの処理
-              document.getElementById("myForm").addEventListener("submit", function(event) {
-                event.preventDefault(); // フォームのデフォルトの送信をキャンセル
-                
-                // フォームの値を取得
-                var lastName = document.getElementById("lastName").value;
-                var firstName = document.getElementById("firstName").value;
-                var email = document.getElementById("email").value;
-                var emailConfirm = document.getElementById("emailConfirm").value;
-                var phoneNumber = document.getElementById("phoneNumber").value;
-                
-                // フォームの値をURLパラメータとして次のページに渡す
-                var nextPageUrl = "../4.購入内容確認/step4.html";
-                nextPageUrl += "?lastName=" + encodeURIComponent(lastName);
-                nextPageUrl += "&firstName=" + encodeURIComponent(firstName);
-                nextPageUrl += "&email=" + encodeURIComponent(email);
-                nextPageUrl += "&emailConfirm=" + encodeURIComponent(emailConfirm);
-                nextPageUrl += "&phoneNumber=" + encodeURIComponent(phoneNumber);
-                
-                // 次のページにリダイレクト
-                window.location.href = nextPageUrl;
-              });
-            </script>
 
             <div>
               <a href="#" class="moda">◀戻る</a>

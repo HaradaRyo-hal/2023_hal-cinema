@@ -8,7 +8,6 @@
   <link rel="stylesheet" href="../common.css" />
   <link rel="stylesheet" href="../common.js" />
   <link rel="stylesheet" href="./styles.css" />
-  <link rel="stylesheet" href="../common.php" />
   <title>4.確認画面</title>
 </head>
 
@@ -29,6 +28,31 @@
 
 
       <main>
+        <div class="confirmation">
+          <h2>入力された情報</h2>
+          <?php
+            // フォームの値を取得
+            $lastName = $_POST['lastName'];
+            $firstName = $_POST['firstName'];
+            $email = $_POST['email'];
+            $phoneNumber = $_POST['phoneNumber'];
+            $cardNumber = $_POST['cardNumber'];
+            $expiryMonth = $_POST['expiryMonth'];
+            $expiryYear = $_POST['expiryYear'];
+            $securityCode = $_POST['securityCode'];
+            $cardHolderName = $_POST['cardHolderName'];
+
+            // フォームの値を表示
+            echo "<h2>入力された情報</h2>";
+            echo "<p>お名前（カタカナ）: $lastName $firstName</p>";
+            echo "<p>メールアドレス: $email</p>";
+            echo "<p>電話番号: $phoneNumber</p>";
+            //echo "<p>カード番号: $cardNumber</p>";
+            //echo "<p>有効期限: $expiryMonth/$expiryYear</p>";
+            //echo "<p>セキュリティーコード: $securityCode</p>";
+            //echo "<p>カード名義人: $cardHolderName</p>";
+          ?>
+        </div>
 
       </main>
 
