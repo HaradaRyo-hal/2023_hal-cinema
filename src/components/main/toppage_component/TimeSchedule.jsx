@@ -6,16 +6,6 @@ const TicketPurchaseComponent = () => {
       id: 1,
       movies: [
         {
-          title: 'スーパーマリオ',
-          showtimes: [
-            { time: '08:30~10:30', theater: 'シアター３', availability: '〇購入可' },
-            { time: '11:30~13:30', theater: 'シアター３', availability: '〇購入可' },
-            { time: '14:00~16:00', theater: 'シアター３', availability: '〇購入可' },
-            { time: '16:30~18:30', theater: 'シアター３', availability: '〇購入可' },
-            { time: '19:00~21:00', theater: 'シアター３', availability: '〇購入可' }
-          ]
-        },
-        {
           title: '名探偵コナン',
           showtimes: [
             { time: '08:30~10:30', theater: 'シアター１', availability: '〇購入可' },
@@ -77,9 +67,12 @@ const TicketPurchaseComponent = () => {
     // 他のコンテンツの映画データを追加
   ];
 
-  const handleButtonClick = () => {
-    window.open('/hal-cinema_pay/1.座席選択/step1.html', '_blank');
+  const handleButtonClick = (theater) => {
+    const url = `http://localhost:80/2023_hal-cinema/public/hal-cinema_pay/1.座席選択/step1.php?theater=${theater}`;
+    window.open(url, '_blank');
   };
+  
+  
 
   return (
     <div>
@@ -90,7 +83,7 @@ const TicketPurchaseComponent = () => {
               <h1>{movie.title}</h1>
               <div className="ticket_box">
                 {movie.showtimes.map((showtime, i) => (
-                  <button key={i} className="button-003" onClick={handleButtonClick}>
+                  <button key={i} className="button-003" onClick={() => handleButtonClick(showtime.theater)}>
                     <p className="time">{showtime.time}</p>
                     <p className="theater">{showtime.theater}</p>
                     <p className="pay">{showtime.availability}</p>
