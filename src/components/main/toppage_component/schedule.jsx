@@ -23,6 +23,7 @@ const ScheduleComponent = () => {
         const selectedItem = element;
     };
 
+    //初期値の管理。ロードすると最初は６月１日が出る
     useEffect(() => {
         document.addEventListener('DOMContentLoaded', () => {
             const defaultItem = document.getElementsByClassName('item')[0];
