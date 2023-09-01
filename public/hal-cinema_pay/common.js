@@ -1,6 +1,3 @@
-
-
-
 //step1.html座席予約システム処理
   // 選択された座席の数をカウントする変数
   var selectedCount = 0;
@@ -43,6 +40,10 @@
     console.log("選択された座席番号一覧:", selectedSeats);
 
     
-// ローカルストレージに配列を保存
+  // ローカルストレージに配列を保存
     localStorage.setItem('selectedSeats', JSON.stringify(selectedSeats));
-  }
+}
+
+// seatTicketMappingオブジェクトをローカルストレージに保存
+localStorage.setItem('seatTicketMapping', JSON.stringify(seatTicketMapping));
+console.log(seatTicketMapping); // オブジェクトの内容をコンソールで確認

@@ -1,17 +1,16 @@
-
 <?php
-$theater = $_GET['theater'];
+  $theater = $_GET['theater'];
 
-// 外部ファイルからコンテンツを読み込む
-if ($theater == 'シアター１') {
-    $seatContent = file_get_contents('./seat/A_theater_seat.html');
-} elseif ($theater == 'シアター２') {
-    $seatContent = file_get_contents('./seat/B_theater_seat.html');
-} elseif ($theater == 'シアター３') {
-    $seatContent = file_get_contents('./seat/C_theater_seat.html');
-} else {
-    $seatContent = 'その他の劇場の座席情報';
-}
+  // 外部ファイルからコンテンツを読み込む
+  if ($theater == 'シアター１') {
+      $seatContent = file_get_contents('./seat/A_theater_seat.html');
+  } elseif ($theater == 'シアター２') {
+      $seatContent = file_get_contents('./seat/B_theater_seat.html');
+  } elseif ($theater == 'シアター３') {
+      $seatContent = file_get_contents('./seat/C_theater_seat.html');
+  } else {
+      $seatContent = 'その他の劇場の座席情報';
+  }
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -200,7 +199,7 @@ if ($theater == 'シアター１') {
         </p>
       </div>
 
-      <form action="../2.券種/step2.html" onsubmit="return checkForm(event)">
+      <form action="../2.券種/step2.php" onsubmit="return checkForm(event)">
         <div class="doui">
           <input type="checkbox" id="myCheckbox" />
           <label for="myCheckbox">利用規約に同意する</label>

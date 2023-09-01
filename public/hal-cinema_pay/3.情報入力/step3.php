@@ -1,4 +1,13 @@
-  <!DOCTYPE html>
+<?php
+session_start();
+if (isset($_POST['seatTicketMapping'])) {
+  $seatTicketMapping = $_POST['seatTicketMapping'];
+  $_SESSION['seatTicketMapping'] = $seatTicketMapping;
+} else {
+  echo "No data received.";
+}
+?>
+<!DOCTYPE html>
   <html lang="ja">
 
   <head>
@@ -6,6 +15,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../common.css" />
+    <link rel="stylesheet" href="../common.js" />
     <link rel="stylesheet" href="./index.css" />
     
     <title>3.情報入力</title>

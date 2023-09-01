@@ -30,11 +30,20 @@
       <div id="seatList"></div>
 
       <script>
-        // ローカルストレージから配列を取得
+      // オブジェクトを初期化
+        var seatTicketMapping = {};
+
+        // 選択された座席情報を取得
         var selectedSeatsString = localStorage.getItem('selectedSeats');
         var selectedSeats = JSON.parse(selectedSeatsString);
 
-        // 配列を画面に表示
+        // 選択された座席に対してチケットの種類を紐づける
+        for (var i = 0; i < selectedSeats.length; i++) {
+          var seat = selectedSeats[i];
+          seatTicketMapping[seat] = ''; // 初期値として空の種類を設定
+        }
+
+        // ドロップダウンメニューの生成と表示
         var seatList = document.getElementById('seatList');
         for (var i = 0; i < selectedSeats.length; i++) {
           var seat = selectedSeats[i];
@@ -55,15 +64,26 @@
             ticketTypeSelect.appendChild(option);
           }
 
+          // ドロップダウンメニューの変更時にオブジェクトに値を設定
+          ticketTypeSelect.addEventListener('change', function(event) {
+            var selectedTicketType = event.target.value;
+            var seatNumber = event.target.name.replace('ticketType-', ''); // 座席番号を取得
+            seatTicketMapping[seatNumber] = selectedTicketType; // オブジェクトに値を設定
+            console.log(seatTicketMapping); // オブジェクトの内容をコンソールで確認
+          });
+
           var seatContainer = document.createElement('div');
           seatContainer.innerHTML = seat + ": ";
           seatContainer.appendChild(ticketTypeSelect);
           seatList.appendChild(seatContainer);
         }
-
       </script>
-        
-      <form action="../3.情報入力/step3.html">
+
+      <form action="../3.情報入力/step3.php" method="post">
+        <!-- ... ここに座席選択のコード ... -->
+
+        <!-- フォーム送信時にseatTicketMappingをinput要素に設定して送信 -->
+        <input type="hidden" name="seatTicketMapping" value="" id="seatTicketMappingInput">
         <div class="next">
           <input type="submit" value="次へ" />
         </div>
