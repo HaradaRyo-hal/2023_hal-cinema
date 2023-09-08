@@ -1,17 +1,29 @@
 <?php
-session_start();
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // フォームから送信されたJSONデータを受け取る
+    $seatTicketMappingJSON = $_POST['seatTicketMapping'];
 
-if (isset($_GET['seatTicketMapping'])) {
-  $seatTicketMapping = json_decode($_GET['seatTicketMapping'], true);
-  
-  echo "<h2>受け取った seatTicketMapping の内容</h2>";
-  echo "<pre>";
-  print_r($seatTicketMapping);
-  echo "</pre>";
+    // JSONデータを連想配列にデコード
+    $seatTicketMapping = json_decode($seatTicketMappingJSON, true);
+
+    // JSONデコードのエラーチェック
+    if (json_last_error() === JSON_ERROR_NONE) {
+        // デコードが成功した場合
+        echo '座席とチケットの種類の関連付け:';
+        echo '<pre>';
+        print_r($seatTicketMapping);
+        echo '</pre>';
+    } else {
+        // デコードに失敗した場合、エラーメッセージを表示
+        echo 'JSONデータのデコードに失敗しました。エラーメッセージ: ' . json_last_error_msg();
+    }
 } else {
-  echo "No seatTicketMapping data received.";
+    echo 'このページはPOSTリクエストでアクセスしてください。';
 }
 ?>
+
+
+
 
 <!DOCTYPE html>
   <html lang="ja">
@@ -41,6 +53,8 @@ if (isset($_GET['seatTicketMapping'])) {
           </ol>
         </div>
     </header>
+   
+
 
 
     <main>
@@ -103,6 +117,7 @@ if (isset($_GET['seatTicketMapping'])) {
               <select id="expiry" name="expiryMonth" placeholder="01" required>
                 <option value="01">01</option>
                 <option value="02">02</option>
+                <option value="02">03</option>
                 <option value="04">04</option>
                 <option value="05">05</option>
                 <option value="06">06</option>

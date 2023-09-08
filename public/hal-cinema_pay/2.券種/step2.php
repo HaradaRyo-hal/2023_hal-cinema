@@ -69,6 +69,7 @@
             var selectedTicketType = event.target.value;
             var seatNumber = event.target.name.replace('ticketType-', ''); // 座席番号を取得
             seatTicketMapping[seatNumber] = selectedTicketType; // オブジェクトに値を設定
+            //console.log(seatTicketMapping); // オブジェクトの内容をコンソールで確認
             console.log(seatTicketMapping); // オブジェクトの内容をコンソールで確認
           });
 
@@ -77,16 +78,20 @@
           seatContainer.appendChild(ticketTypeSelect);
           seatList.appendChild(seatContainer);
         }
-        
-        document.getElementById('seatTicketMappingInput').value = JSON.stringify(seatTicketMapping);
+        var form = document.querySelector('form');
+        form.addEventListener('submit', function() {
+          var seatTicketMappingJSON = JSON.stringify(seatTicketMapping);
+          var hiddenInput = document.createElement('input');
+          hiddenInput.type = 'hidden';
+          hiddenInput.name = 'seatTicketMapping';
+          hiddenInput.value = seatTicketMappingJSON;
+          form.appendChild(hiddenInput);
+        });
       </script>
       
-      <form action="../3.情報入力/step3.php" method="get">
+      <form action="../3.情報入力/step3.php" method="post">
         <!-- フォーム送信時にseatTicketMappingをinput要素に設定して送信 -->
-        <input type="hidden" name="seatTicketMapping" value="" id="seatTicketMappingInput">
-        <!-- <input type="hidden" name="staffs[]" value="seatTicketMapping" id="seatTicketMappingInput">
-        <input type="hidden" name="staffs[]" value="seatTicketMapping" id="seatTicketMappingInput">
-        <input type="hidden" name="staffs[]" value="seatTicketMapping" id="seatTicketMappingInput"> -->
+        <input type="hidden" name="seatTicketMapping">
         <div class="next">
           <input type="submit" value="次へ" />
         </div>
