@@ -77,13 +77,16 @@
           seatContainer.appendChild(ticketTypeSelect);
           seatList.appendChild(seatContainer);
         }
+        
+        document.getElementById('seatTicketMappingInput').value = JSON.stringify(seatTicketMapping);
       </script>
-
-      <form action="../3.情報入力/step3.php" method="post">
-        <!-- ... ここに座席選択のコード ... -->
-
+      
+      <form action="../3.情報入力/step3.php" method="get">
         <!-- フォーム送信時にseatTicketMappingをinput要素に設定して送信 -->
         <input type="hidden" name="seatTicketMapping" value="" id="seatTicketMappingInput">
+        <!-- <input type="hidden" name="staffs[]" value="seatTicketMapping" id="seatTicketMappingInput">
+        <input type="hidden" name="staffs[]" value="seatTicketMapping" id="seatTicketMappingInput">
+        <input type="hidden" name="staffs[]" value="seatTicketMapping" id="seatTicketMappingInput"> -->
         <div class="next">
           <input type="submit" value="次へ" />
         </div>

@@ -27,20 +27,6 @@
     <div class="confirmation">
       <h2>入力された情報</h2>
       <?php
-session_start();
-if (isset($_SESSION['seatTicketMapping'])) {
-  $mappingArrayString = $_SESSION['seatTicketMapping'];
-  $mappingArray = json_decode($mappingArrayString, true);
-
-  echo "<h2>選択された座席とチケットの種類</h2>";
-  echo "<ul>";
-  foreach ($mappingArray as $seat => $ticketType) {
-    echo "<li>$seat $ticketType</li>";
-  }
-  echo "</ul>";
-} else {
-  echo "No data received.";
-}
 
       // フォームの値を取得
       $lastName = $_POST['lastName'];
