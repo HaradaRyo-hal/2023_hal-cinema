@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./kenshu.css" />
     <link rel="stylesheet" href="../common.css" />
-    <script src="../common.js"></script>
     <title>2.券種選択</title>
   </head>
   <body>
@@ -69,7 +68,6 @@
             var selectedTicketType = event.target.value;
             var seatNumber = event.target.name.replace('ticketType-', ''); // 座席番号を取得
             seatTicketMapping[seatNumber] = selectedTicketType; // オブジェクトに値を設定
-            //console.log(seatTicketMapping); // オブジェクトの内容をコンソールで確認
             console.log(seatTicketMapping); // オブジェクトの内容をコンソールで確認
           });
 
@@ -78,25 +76,15 @@
           seatContainer.appendChild(ticketTypeSelect);
           seatList.appendChild(seatContainer);
         }
-        var form = document.querySelector('form');
-        form.addEventListener('submit', function() {
-          var seatTicketMappingJSON = JSON.stringify(seatTicketMapping);
-          var hiddenInput = document.createElement('input');
-          hiddenInput.type = 'hidden';
-          hiddenInput.name = 'seatTicketMapping';
-          hiddenInput.value = seatTicketMappingJSON;
-          form.appendChild(hiddenInput);
-        });
       </script>
-      
+
       <form action="../3.情報入力/step3.php" method="post">
-        <!-- フォーム送信時にseatTicketMappingをinput要素に設定して送信 -->
-        <input type="hidden" name="seatTicketMapping">
+        <!-- オブジェクトをJSON文字列に変換してフォームに設定 -->
+        <input type="hidden" name="seatTicketMapping" value="<?php echo json_encode($seatTicketMapping); ?>">
         <div class="next">
           <input type="submit" value="次へ" />
         </div>
       </form>
-
       <div>
         <a href="#" class="moda">◀戻る</a>
       </div>

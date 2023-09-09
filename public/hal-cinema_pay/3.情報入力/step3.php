@@ -1,30 +1,3 @@
-<?php
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // フォームから送信されたJSONデータを受け取る
-    $seatTicketMappingJSON = $_POST['seatTicketMapping'];
-
-    // JSONデータを連想配列にデコード
-    $seatTicketMapping = json_decode($seatTicketMappingJSON, true);
-
-    // JSONデコードのエラーチェック
-    if (json_last_error() === JSON_ERROR_NONE) {
-        // デコードが成功した場合
-        echo '座席とチケットの種類の関連付け:';
-        echo '<pre>';
-        print_r($seatTicketMapping);
-        echo '</pre>';
-    } else {
-        // デコードに失敗した場合、エラーメッセージを表示
-        echo 'JSONデータのデコードに失敗しました。エラーメッセージ: ' . json_last_error_msg();
-    }
-} else {
-    echo 'このページはPOSTリクエストでアクセスしてください。';
-}
-?>
-
-
-
-
 <!DOCTYPE html>
   <html lang="ja">
 
@@ -33,7 +6,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../common.css" />
-    <link rel="stylesheet" href="../common.js" />
     <link rel="stylesheet" href="./index.css" />
     
     <title>3.情報入力</title>
@@ -52,8 +24,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <li><span></span><br />購入完了</li>
           </ol>
         </div>
-    </header>
-   
+    </header><?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // seatTicketMapping フォームデータを取得
+    if (isset($_POST["seatTicketMapping"])) {
+        $seatTicketMappingJSON = $_POST["seatTicketMapping"];
+        
+        // JSONデータを連想配列にデコード
+        $seatTicketMapping = json_decode($seatTicketMappingJSON, true);
+
+        if (json_last_error() === JSON_ERROR_NONE) {
+            // データの表示
+            echo "<h2>座席とチケットの種類:</h2>";
+            echo "<ul>";
+            foreach ($seatTicketMapping as $seat => $ticketType) {
+                echo "<li>座席: $seat, チケットの種類: $ticketType</li>";
+            }
+            echo "</ul>";
+        } else {
+            echo "JSONデコードエラー: " . json_last_error_msg();
+        }
+    } else {
+        echo "座席情報が送信されていません。";
+    }
+} else {
+    echo "無効なリクエストです。";
+}
+?>
 
 
 

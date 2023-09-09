@@ -43,7 +43,3 @@
   // ローカルストレージに配列を保存
     localStorage.setItem('selectedSeats', JSON.stringify(selectedSeats));
 }
-
-// seatTicketMappingオブジェクトをローカルストレージに保存
-localStorage.setItem('seatTicketMapping', JSON.stringify(seatTicketMapping));
-console.log(seatTicketMapping); // オブジェクトの内容をコンソールで確認
