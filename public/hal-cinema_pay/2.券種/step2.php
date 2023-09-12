@@ -57,7 +57,7 @@
           var creatInputTag = document.createElement("input")
 
           creatInputTag.type = "hidden"
-          creatInputTag.name = "seat" + ids
+          creatInputTag.name = "seat[]"
           creatInputTag.value = inSeat
 
           // シート特定用
