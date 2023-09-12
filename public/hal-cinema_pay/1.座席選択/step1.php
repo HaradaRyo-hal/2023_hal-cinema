@@ -199,7 +199,8 @@
         </p>
       </div>
 
-      <form action="../2.券種/step2.php" onsubmit="return checkForm(event)">
+      <!-- <form action="../2.券種/step2.php" onsubmit="return checkForm(event)"> -->
+      <form action="../1.座席選択/step1Act.php" onsubmit="return checkForm(event)">
         <div class="doui">
           <input type="checkbox" id="myCheckbox" />
           <label for="myCheckbox">利用規約に同意する</label>

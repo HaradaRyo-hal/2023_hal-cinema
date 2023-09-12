@@ -42,7 +42,7 @@ if (isset($_POST['seatTicketMapping'])) {
           <h2>お客様情報入力</h2>
 
           <div class="user_box">
-            <form action="../4.購入内容確認/step4.php" method="POST">
+            <form action="../4.購入内容確認/step4.php" method="GET">
 
               <div class="title_box">
                 <div class="title">お名前（カタカナ）</div>
