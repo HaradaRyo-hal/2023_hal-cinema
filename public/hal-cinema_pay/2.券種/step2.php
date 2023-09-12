@@ -29,7 +29,43 @@
 
       <div id="seatList"></div>
 
-      <script>
+      
+
+      <form action="../3.情報入力/step3.php" method="get">
+        <!-- ... ここに座席選択のコード ... -->
+        <div id="seatState">
+
+        </div>
+        <!-- フォーム送信時にseatTicketMappingをinput要素に設定して送信 -->
+        <!-- <input type="hidden" name="seatTicketMapping" value="" id="seatTicketMappingInput"> -->
+        <div class="next">
+          <input type="submit" value="次へ" />
+        </div>
+      </form>
+
+      <div>
+        <a href="#" class="moda">◀戻る</a>
+      </div>
+
+    </main>
+
+    <script>
+
+        // シート用タグ生成
+        function addInputTag(inSeat, ids){
+
+          var creatInputTag = document.createElement("input")
+
+          creatInputTag.type = "hidden"
+          creatInputTag.name = "seat" + ids
+          creatInputTag.value = inSeat
+
+          // シート特定用
+          var seatState = document.getElementById('seatState');
+          seatState.appendChild(creatInputTag);
+          console.log(inSeat)
+        }
+
       // オブジェクトを初期化
         var seatTicketMapping = {};
 
@@ -41,10 +77,13 @@
         for (var i = 0; i < selectedSeats.length; i++) {
           var seat = selectedSeats[i];
           seatTicketMapping[seat] = ''; // 初期値として空の種類を設定
+
+          addInputTag(selectedSeats[i], i);
         }
 
         // ドロップダウンメニューの生成と表示
         var seatList = document.getElementById('seatList');
+
         for (var i = 0; i < selectedSeats.length; i++) {
           var seat = selectedSeats[i];
           var ticketTypeSelect = document.createElement('select');
@@ -78,22 +117,6 @@
           seatList.appendChild(seatContainer);
         }
       </script>
-
-      <form action="../3.情報入力/step3.php" method="post">
-        <!-- ... ここに座席選択のコード ... -->
-
-        <!-- フォーム送信時にseatTicketMappingをinput要素に設定して送信 -->
-        <input type="hidden" name="seatTicketMapping" value="" id="seatTicketMappingInput">
-        <div class="next">
-          <input type="submit" value="次へ" />
-        </div>
-      </form>
-
-      <div>
-        <a href="#" class="moda">◀戻る</a>
-      </div>
-
-    </main>
 
   </body>
 
