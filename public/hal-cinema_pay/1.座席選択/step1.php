@@ -204,6 +204,21 @@
           <input type="checkbox" id="myCheckbox" />
           <label for="myCheckbox">利用規約に同意する</label>
         </div>
+
+        <!-- テストデータ -->
+      							
+        <!-- 動的なデータ(インクリメント系) -->
+        <input type="hidden" name="f_appointmentid" value="AP000">
+        <input type="hidden" name="f_theaterscheduleid" value="TS000">
+        <!-- 規定値 -->
+        <input type="hidden" name="f_userid" value="US000">
+        <input type="hidden" name="f_appointedenable" value="1">
+        <input type="hidden" name="f_payid" value="PY000">
+        <input type="hidden" name="f_ticket" value="TK000">
+          <!-- memo
+        f_appointedenable -> tinyInt
+        
+      -->
         <div class="next">
           <input type="submit" value="送信" />
         </div>
