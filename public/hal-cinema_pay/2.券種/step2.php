@@ -24,14 +24,17 @@
     </header>
 
     <main>
-
+<!-- 
       <h2></h2>
 
-      <div id="seatList"></div>
+      <div id="seatList"></div> -->
 
       
 
       <form action="../3.情報入力/step3.php" method="get">
+      <h2></h2>
+
+      <div id="seatList"></div>
         <!-- ... ここに座席選択のコード ... -->
         <div id="seatState">
 
@@ -86,8 +89,9 @@
 
         for (var i = 0; i < selectedSeats.length; i++) {
           var seat = selectedSeats[i];
-          var ticketTypeSelect = document.createElement('select');
-          ticketTypeSelect.name = 'ticketType-' + seat;
+          var ticketTypeSelect = document.createElement('select')
+          // ticketTypeSelect.name = 'ticketType-' + seat;;
+          ticketTypeSelect.name = 'ticketType[]';
 
           // チケットの種類を追加
           var ticketTypes = ['一般', '学生', 'シニア'];
