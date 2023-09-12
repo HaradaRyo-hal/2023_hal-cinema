@@ -31,12 +31,13 @@ session_start();
 if (isset($_SESSION['seatTicketMapping'])) {
   $mappingArrayString = $_SESSION['seatTicketMapping'];
   $mappingArray = json_decode($mappingArrayString, true);
+  echo $mappingArray;
 
   echo "<h2>選択された座席とチケットの種類</h2>";
   echo "<ul>";
-  foreach ($mappingArray as $seat => $ticketType) {
-    echo "<li>$seat $ticketType</li>";
-  }
+  // foreach ($mappingArray as $seat => $ticketType) {
+  //   echo "<li>$seat $ticketType</li>";
+  // }
   echo "</ul>";
 } else {
   echo "No data received.";
@@ -64,6 +65,14 @@ if (isset($_SESSION['seatTicketMapping'])) {
       //echo "<p>カード名義人: $cardHolderName</p>";
       ?>
     </div>
+
+    <form action="#" method="get">
+      <input type="hidden" name="test" value="test"/>
+      <div class="next">
+        <input type="submit" value="送信" />
+      </div>
+    </form>
+
   </main>
 
   <footer>
