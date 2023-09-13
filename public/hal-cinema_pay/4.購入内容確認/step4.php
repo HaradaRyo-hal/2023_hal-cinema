@@ -72,13 +72,35 @@
           print $value;
           print "<br/>";
         }
-
+        $price = 0;
         foreach ($_COOKIE["seat"] as $key => $value) {
           print $key;
           print ": ";
           print $value;
           print "<br/>";
+          
+          switch ($value) {
+            case '一般':
+              # code...
+              $price += 1800;
+              break;
+            case '大学生等':
+              # code...
+              $price += 1600;
+              break;
+            case '中学、高校':
+              # code...
+              $price += 1400;
+              break;
+            case '小学生、幼児':
+              $price += 1000;
+            default:
+              # code...
+              break;
+          }
       }
+
+      setcookie("ticketPrice", $price, ['path' => '/']);
 
 
         print "end";
@@ -104,6 +126,7 @@
       echo "<p>お名前（カタカナ）: $lastName $firstName</p>";
       echo "<p>メールアドレス: $email</p>";
       echo "<p>電話番号: $phoneNumber</p>";
+      echo "<p>購入金額: $price</p>";
       //echo "<p>カード番号: $cardNumber</p>";
       //echo "<p>有効期限: $expiryMonth/$expiryYear</p>";
       //echo "<p>セキュリティーコード: $securityCode</p>";

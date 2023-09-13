@@ -32,10 +32,9 @@ $stmt = $conn->prepare("INSERT INTO t_payments (f_mail_address, f_phone_number, 
 // プリペアドステートメントに変数をバインド
 $stmt->bind_param("ssis", $profile['email'], $profile['phoneNumber'], $expirationDate, $profile['cardHolderName']);
 // クエリを実行してデータを挿入
-$lastInsertId = null;
 if ($stmt->execute()) {
     echo "データが正常に挿入されました。-payments";
-    $lastInsertId = $conn->insert_id;
+    $paymentsId = $conn->insert_id;
 } else {
     echo "データの挿入中にエラーが発生しました。-payments: " . $stmt->error;
 }
@@ -52,20 +51,74 @@ $stmt = $conn->prepare($sql);
 
 // パラメータのバインド
 // これらの変数に挿入する値を設定します
-$scheduleId = $_COOKIE["schedule"]; // 例として1を使用
-$paymentId = $lastInsertId; // 例として123を使用
-$userId = $_COOKIE["userid"]; // 例としてユーザーIDを使用
+$scheduleId = $_COOKIE["schedule"];
+$paymentId = $paymentsId;
+$userId = $_COOKIE["userid"];
 
 $stmt->bind_param("iis", $scheduleId, $paymentId, $userId);
 
 // クエリの実行
 if ($stmt->execute()) {
     echo "レコードが正常に挿入されました。";
+    $appointmentsId = $conn->insert_id;
 } else {
     echo "エラー: " . $stmt->error;
 }
 
 // ステートメントを閉じる
 $stmt->close();
+
+// 予約詳細の登録
+
+$f_screen_id = $_COOKIE['screen']; // スクリーンID
+
+foreach ($_COOKIE['seat'] as $key => $value) {
+    # code...
+    $sql = "INSERT INTO t_appointment_details (f_appointment_id, f_screen_id, f_seat_number, f_ticket_type_id) VALUES (?, ?, ?, ?)";
+    $stmt = $conn->prepare($sql);
+
+    $seat = htmlspecialchars($key);
+    $seatType = htmlspecialchars($value);
+
+
+    switch ($seatType) {
+    case '一般':
+        # code...
+        $seatType = "TT000001";
+        break;
+    case '大学生等':
+        # code...
+        $seatType = "TT000002";
+        break;
+    case '中学、高校':
+        # code...
+        $seatType = "TT000003";
+        break;
+    case '小学生、幼児':
+        $seatType = "TT000004";
+        break;
+    default:
+        # code...
+        break;
+    }
+
+
+    $stmt->bind_param("isss", $appointmentsId, $f_screen_id, $seat, $seatType);
+    // クエリの実行
+    if ($stmt->execute()) {
+        echo "レコードが正常に挿入されました。";
+        $appointmentsId = $conn->insert_id;
+    } else {
+        echo "エラー: " . $stmt->error;
+    }
+
+    // ステートメントを閉じる
+    $stmt->close();
+
+}
+
+
 $conn->close();
+
+header('location: ../5.購入完了/step5.php');
 ?>

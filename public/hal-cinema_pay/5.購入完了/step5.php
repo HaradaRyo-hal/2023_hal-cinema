@@ -1,6 +1,34 @@
 <!DOCTYPE html>
 <html lang="ja">
 
+<?php
+
+  error_reporting(0);
+
+  foreach ($_COOKIE['profile'] as $key => $value) {
+    # code...
+
+    setcookie("profile[$key]", "", time() - 1000, "/");
+  }
+
+  foreach ($_COOKIE['seat'] as $key => $value) {
+    # code...
+
+    setcookie("seat[$key]", "", time() - 1000, "/");
+  }
+
+
+  // スケジュールID
+  setcookie("schedule", "" , time() - 1000, "/");
+  // スクリーンID
+  setcookie("screen", "",  time() - 1000, "/");
+
+  setcookie("ticketPrice", "" , time() - 1000, "/");
+
+
+  error_reporting(-1);
+?>
+
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -32,7 +60,7 @@
         <div class="m1">
           購入が完了しました。ご利用ありがとうございました。
         </div>
-        <a href="#" class="moda">◀戻る</a>
+        <a href="http://localhost:3000" class="moda" style="margin-top: 50px" >TOPへ</a>
 
     </main>
 
