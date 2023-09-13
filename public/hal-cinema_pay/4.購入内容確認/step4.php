@@ -53,7 +53,38 @@
 
   <main>
     <div class="confirmation">
-      <h2>入力された情報</h2>
+      <h2>入力された情報(debug)</h2>
+      <?php
+      
+        print "POST </br>";
+        foreach ($_POST as $key => $value) {
+          print $key;
+          print ": ";
+          print $value;
+          print "<br/>";
+        }
+      
+        print "COOLIKIE </br>";
+        foreach ($_COOKIE as $key => $value) {
+          print $key;
+          print ": ";
+          print $value;
+          print "<br/>";
+        }
+
+        foreach ($_COOKIE["seat"] as $key => $value) {
+          print $key;
+          print ": ";
+          print $value;
+          print "<br/>";
+      }
+
+
+        print "end";
+      ?>
+
+      <!-- ここから本筋 -->
+
       <?php
 
       // フォームの値を取得
@@ -78,6 +109,12 @@
       //echo "<p>カード名義人: $cardHolderName</p>";
       ?>
     </div>
+    <form action="appoimentRegister.php" method="post">
+      <input type="hidden" name="" value=""/>
+      <div class="next">
+        <input type="submit" value="予約する" />
+      </div>
+    </form>
   </main>
 
   <footer>

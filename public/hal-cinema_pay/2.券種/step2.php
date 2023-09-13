@@ -28,6 +28,20 @@
 
       <div id="seatList"></div>
 
+      <form action="../3.情報入力/step3.php" method="post">
+        <!-- オブジェクトをJSON文字列に変換してフォームに設定 -->
+        <input type="hidden" id="seatTicketMapping" name="seatTicketMapping" value="">
+        <div class="next">
+          <input type="submit" value="次へ" />
+        </div>
+      </form>
+      <div>
+        <a href="#" class="moda">◀戻る</a>
+      </div>
+
+    </main>
+
+
       <script>
       // オブジェクトを初期化
         var seatTicketMapping = {};
@@ -79,20 +93,6 @@
           seatList.appendChild(seatContainer);
         }
       </script>
-
-      <form action="../3.情報入力/step3.php" method="post">
-        <!-- オブジェクトをJSON文字列に変換してフォームに設定 -->
-        <input type="hidden" id="seatTicketMapping" name="seatTicketMapping" value="">
-        <div class="next">
-          <input type="submit" value="次へ" />
-        </div>
-      </form>
-      <div>
-        <a href="#" class="moda">◀戻る</a>
-      </div>
-
-    </main>
-
   </body>
 
   <footer>
