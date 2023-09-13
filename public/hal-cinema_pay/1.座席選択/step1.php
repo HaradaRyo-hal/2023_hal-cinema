@@ -1,4 +1,10 @@
 <?php
+// TODO
+// スケジュールIDの取得
+// ユーザのテーブルIDを取得
+
+
+
   $theater = $_GET['theater'];
 
   // 外部ファイルからコンテンツを読み込む
@@ -11,6 +17,13 @@
   } else {
       $seatContent = 'その他の劇場の座席情報';
   }
+
+  // スケジュールID
+  setcookie("schedule", -1);
+  // ユーザID -> 本来ならcookie入力済み
+  setcookie("userid", -1);
+
+
 ?>
 <!DOCTYPE html>
 <html lang="ja">
