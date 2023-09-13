@@ -19,9 +19,9 @@
   }
 
   // スケジュールID
-  setcookie("schedule", -1);
+  setcookie("schedule", "-1" ,['path' => '/']);
   // ユーザID -> 本来ならcookie入力済み
-  setcookie("userid", -1);
+  setcookie("userid", "-1" ,['path' => '/']);
 
 
 ?>

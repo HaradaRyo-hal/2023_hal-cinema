@@ -35,13 +35,12 @@
               $seatTicketMapping = json_decode($seatTicketMappingJSON, true);
 
               if (json_last_error() === JSON_ERROR_NONE) {
-                  // データの表示
+                  // データの表示 後で消す
                   echo "<h2>座席とチケットの種類:</h2>";
-                  echo "<ul>";
                   foreach ($seatTicketMapping as $seat => $ticketType) {
-                      echo "<li>座席: $seat, チケットの種類: $ticketType</li>";
+                      echo "<p>座席: $seat, チケットの種類: $ticketType</p>";
+                      setcookie("seat[$seat]", $ticketType, ['path' => '/']);
                   }
-                  echo "</ul>";
               } else {
                   echo "JSONデコードエラー: " . json_last_error_msg();
               }
@@ -66,11 +65,13 @@
           <div class="form-group">
             <div class="sei">
               <label for="lastName">セイ</label>
-              <input type="text" id="lastName" name="lastName" placeholder="例：ヤマダ" required>
+              <!-- <input type="text" id="lastName" name="lastName" placeholder="例：ヤマダ" required> -->
+              <input type="text" id="lastName" name="lastName" placeholder="例：ヤマダ" value="ヒロセ" required>
             </div>
             <div class="mei">
               <label for="firstName">メイ</label>
-              <input type="text" id="firstName" name="firstName" placeholder="例：タロウ" required>
+              <!-- <input type="text" id="firstName" name="firstName" placeholder="例：タロウ" required> -->
+              <input type="text" id="firstName" name="firstName" placeholder="例：タロウ" value="ユウヤ" required>
             </div>
           </div>
       
@@ -79,9 +80,11 @@
             <div class="red_text">入力必須</div>
           </div>
           <div class="form-email">
-            <input type="email" id="email" name="email" placeholder="例：example@example.com" required>
+            <!-- <input type="email" id="email" name="email" placeholder="例：example@example.com" required> -->
+            <input type="email" id="email" name="email" placeholder="例：example@example.com" value="example@example.com" required>
             <label for="email" class="emaillabel">メールアドレス確認</label>
-            <input type="email" id="emailConfirm" name="emailConfirm" placeholder="例：example@example.com" required>
+            <!-- <input type="email" id="emailConfirm" name="emailConfirm" placeholder="例：example@example.com" required> -->
+            <input type="email" id="emailConfirm" name="emailConfirm" placeholder="例：example@example.com" value="example@example.com" required>
           </div>
       
           <div class="title_box">
@@ -89,7 +92,8 @@
             <div class="red_text">入力必須</div>
           </div>
           <div class="form-email">
-            <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="例：01234567890" required>
+            <!-- <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="例：01234567890" required> -->
+            <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="例：01234567890" value="01234567890" required>
           </div>
 
           <div class="form_box">
@@ -103,7 +107,8 @@
 
             <div class="form-card">
               <label for="cardNumber">カード番号</label>
-              <input id="cardNumber" name="cardNumber" maxlength="16" placeholder="例：1234567890123456" required>
+              <!-- <input id="cardNumber" name="cardNumber" maxlength="16" placeholder="例：1234567890123456" required> -->
+              <input id="cardNumber" name="cardNumber" maxlength="16" placeholder="例：1234567890123456" value="123456789" required>
               <p class="haihun">※半角数字、ハイフン「-」なしで入力してください。</p>
             </div>
 
@@ -151,13 +156,17 @@
 
             <div class="form-card">
               <label for="securityCode">セキュリティーコード</label>
-              <input type="text" id="securityCode" name="securityCode" placeholder="例：123" maxlength="3" required>
+              <!-- <input type="text" id="securityCode" name="securityCode" placeholder="例：123" maxlength="3" required> -->
+              <input type="text" id="securityCode" name="securityCode" placeholder="例：123" maxlength="3" value="123" required>
             </div>
 
             <div class="form-card">
               <label for="cardHolderName">カード名義人</label>
+              <!-- <input type="text" id="cardHolderName" name="cardHolderName" 
+                placeholder="例：YAMADA TARO" pattern="[A-Z]+" required title="アルファベットのみ入力してください"> -->
+
               <input type="text" id="cardHolderName" name="cardHolderName" 
-                placeholder="例：YAMADA TARO" pattern="[A-Z]+" required title="アルファベットのみ入力してください">
+                placeholder="例：YAMADA TARO" pattern="[A-Z]+" value="YAMADA TARO" required title="アルファベットのみ入力してください">
             </div>
           </div>
 
