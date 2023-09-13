@@ -69,6 +69,8 @@
             var seatNumber = event.target.name.replace('ticketType-', ''); // 座席番号を取得
             seatTicketMapping[seatNumber] = selectedTicketType; // オブジェクトに値を設定
             console.log(seatTicketMapping); // オブジェクトの内容をコンソールで確認
+            var seatJs = document.getElementById("seatTicketMapping");//HTML要素内の id 属性が "seatTicketMapping" である要素をJavaScriptの変数 seatJs に取得しています
+            seatJs.value = JSON.stringify(seatTicketMapping);//変数 seatTicketMapping に格納されているJavaScriptオブジェクトをJSON文字列に変換
           });
 
           var seatContainer = document.createElement('div');
@@ -80,7 +82,7 @@
 
       <form action="../3.情報入力/step3.php" method="post">
         <!-- オブジェクトをJSON文字列に変換してフォームに設定 -->
-        <input type="hidden" name="seatTicketMapping" value="<?php echo json_encode($seatTicketMapping); ?>">
+        <input type="hidden" id="seatTicketMapping" name="seatTicketMapping" value="">
         <div class="next">
           <input type="submit" value="次へ" />
         </div>

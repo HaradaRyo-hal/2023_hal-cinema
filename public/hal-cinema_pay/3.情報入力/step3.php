@@ -24,36 +24,34 @@
             <li><span></span><br />購入完了</li>
           </ol>
         </div>
-    </header><?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // seatTicketMapping フォームデータを取得
-    if (isset($_POST["seatTicketMapping"])) {
-        $seatTicketMappingJSON = $_POST["seatTicketMapping"];
-        
-        // JSONデータを連想配列にデコード
-        $seatTicketMapping = json_decode($seatTicketMappingJSON, true);
+    </header>
+    <?php
+      if ($_SERVER["REQUEST_METHOD"] == "POST") {
+          // seatTicketMapping フォームデータを取得
+          if (isset($_POST["seatTicketMapping"])) {
+              $seatTicketMappingJSON = $_POST["seatTicketMapping"];
+              
+              // JSONデータを連想配列にデコード
+              $seatTicketMapping = json_decode($seatTicketMappingJSON, true);
 
-        if (json_last_error() === JSON_ERROR_NONE) {
-            // データの表示
-            echo "<h2>座席とチケットの種類:</h2>";
-            echo "<ul>";
-            foreach ($seatTicketMapping as $seat => $ticketType) {
-                echo "<li>座席: $seat, チケットの種類: $ticketType</li>";
-            }
-            echo "</ul>";
-        } else {
-            echo "JSONデコードエラー: " . json_last_error_msg();
-        }
-    } else {
-        echo "座席情報が送信されていません。";
-    }
-} else {
-    echo "無効なリクエストです。";
-}
-?>
-
-
-
+              if (json_last_error() === JSON_ERROR_NONE) {
+                  // データの表示
+                  echo "<h2>座席とチケットの種類:</h2>";
+                  echo "<ul>";
+                  foreach ($seatTicketMapping as $seat => $ticketType) {
+                      echo "<li>座席: $seat, チケットの種類: $ticketType</li>";
+                  }
+                  echo "</ul>";
+              } else {
+                  echo "JSONデコードエラー: " . json_last_error_msg();
+              }
+          } else {
+              echo "座席情報が送信されていません。";
+          }
+      } else {
+          echo "無効なリクエストです。";
+      }
+    ?>
     <main>
 
       <h2>お客様情報入力</h2>
@@ -163,11 +161,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
           </div>
 
-          <input type="hidden" name="seatTicketMapping" value="" id="seatTicketMappingInput">
+          <input type="hidden" name="seatTicketMapping" value="" id="seatTicketMapping">
             <div class="next">
               <input type="submit" value="次へ" />
             </div>
-
         </form>
         
         <div>
