@@ -109,6 +109,12 @@
       //echo "<p>カード名義人: $cardHolderName</p>";
       ?>
     </div>
+    <form action="appoimentRegister.php" method="post">
+      <input type="hidden" name="" value=""/>
+      <div class="next">
+        <input type="submit" value="予約する" />
+      </div>
+    </form>
   </main>
 
   <footer>
