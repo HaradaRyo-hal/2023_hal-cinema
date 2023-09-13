@@ -166,7 +166,7 @@
                 placeholder="例：YAMADA TARO" pattern="[A-Z]+" required title="アルファベットのみ入力してください"> -->
 
               <input type="text" id="cardHolderName" name="cardHolderName" 
-                placeholder="例：YAMADA TARO" pattern="[A-Z]+" value="YAMADA TARO" required title="アルファベットのみ入力してください">
+                placeholder="例：YAMADA TARO" pattern="[A-Z ]+" value="YAMADA TARO" required title="アルファベットと半角スペースのみで入力してください">
             </div>
           </div>
 

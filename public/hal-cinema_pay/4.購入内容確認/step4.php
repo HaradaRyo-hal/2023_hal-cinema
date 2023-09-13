@@ -62,6 +62,7 @@
           print ": ";
           print $value;
           print "<br/>";
+          setcookie("profile[$key]", $value, ['path' => '/']);
         }
       
         print "COOLIKIE </br>";
