@@ -64,7 +64,7 @@
           ticketTypeSelect.name = 'ticketType-' + seat;
 
           // チケットの種類を追加
-          var ticketTypes = ['一般', '学生', 'シニア'];
+          var ticketTypes = ['一般', '大学生等', '中学、高校', '小学生、幼児'];
           var defaultOption = document.createElement('option');
           defaultOption.value = '';
           defaultOption.text = '選択してください';

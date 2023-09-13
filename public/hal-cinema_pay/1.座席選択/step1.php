@@ -19,9 +19,11 @@
   }
 
   // スケジュールID
-  setcookie("schedule", "-1" ,['path' => '/']);
+  setcookie("schedule", "1" ,['path' => '/']);
+  // スクリーンID
+  setcookie("screen", "SCR000A1", ['path' => '/']);
   // ユーザID -> 本来ならcookie入力済み
-  setcookie("userid", "-1" ,['path' => '/']);
+  setcookie("userid", "USR00000" ,['path' => '/']);
 
 
 ?>
