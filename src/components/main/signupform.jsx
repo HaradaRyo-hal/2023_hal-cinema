@@ -1,38 +1,47 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const SignUpForm = () => {
   const [formData, setFormData] = useState({
-    f_user_id: '',//ユーザーID
+    f_user_id: 'test',//ユーザーID
     f_login_name: '', //名前
-    f_login_password: '', // パスワード
+    f_login_password: 'password', // パスワード
     f_news_subscribed: false, //メルマガ いるかいらないか？
     f_birthday: '', // 誕生日
-    f_postal_code: '', //郵便番号〒000-0000
-    f_prefecture: '', //都道府県
-    f_city: '', //市町村
-    f_address1: '', //何丁目番地
-    f_address2: '', //マンション部屋番号　//あるときないときある
-    f_mail_address: '', //メールアドレス
-    f_full_name_kanji: '', //漢字氏名
-    f_full_name_kana: '', //カナ氏名
+    f_postal_code: '000-0000', //郵便番号〒000-0000
+    f_prefecture: '岡山県', //都道府県
+    f_city: '岡山市辰巳町', //市町村
+    f_address1: '1丁目110番地', //何丁目番地
+    f_address2: 'ソーシャルオオモリ2-205', //マンション部屋番号　//あるときないときある
+    f_mail_address: 'tester@gmail.com', //メールアドレス
+    f_full_name_kanji: '広瀬', //漢字氏名
+    f_full_name_kana: '友哉', //カナ氏名
   });
+
+  // Cookieを設定する関数
+  function setCookie(name, value, days) {
+    const date = new Date();
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000)); // 有効期限を設定
+    const expires = "expires=" + date.toUTCString();
+    document.cookie = name + "=" + value + ";" + expires + ";path=/"; // Cookieを設定
+  }
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     let fieldValue = value;
 
-    // 入力制限を追加
-    if (name === 'f_postal_code') {
-      // 数字のみの入力と3桁目と4桁目の間にハイフンの自動配置、最大文字数7文字
-      fieldValue = value.replace(/\D/g, '').replace(/(\d{3})(\d{1,4})/, '$1-$2').slice(0, 8);
-    } else if (name === 'f_prefecture' || name === 'f_full_name_kanji') {
-      // 数字と英語の入力を制限
-      fieldValue = value.replace(/[^ぁ-んァ-ン一-龥ー]/g, '');
-    } else if (name === 'f_full_name_kana') {
-      // カタカナのみの入力を制限
-      fieldValue = value.replace(/[^ァ-ンー]/g, '');
-    }
+    // // 入力制限を追加
+    // if (name === 'f_postal_code') {
+    //   // 数字のみの入力と3桁目と4桁目の間にハイフンの自動配置、最大文字数7文字
+    //   fieldValue = value.replace(/\D/g, '').replace(/(\d{3})(\d{1,4})/, '$1-$2').slice(0, 8);
+    // } else if (name === 'f_prefecture' || name === 'f_full_name_kanji') {
+    //   // 数字と英語の入力を制限
+    //   fieldValue = value.replace(/[^ぁ-んァ-ン一-龥ー]/g, '');
+    // } else if (name === 'f_full_name_kana') {
+    //   // カタカナのみの入力を制限
+    //   fieldValue = value.replace(/[^ァ-ンー]/g, '');
+    // }
 
     const updatedFormData = {
       ...formData,
@@ -45,6 +54,44 @@ const SignUpForm = () => {
     e.preventDefault();
     // フォームのデータをサーバーに送信する処理を実装する
     console.log(formData);
+  };
+
+
+  const navigate = useNavigate();
+
+  const handoleSubmitPushAxios = async (e) => {
+    e.preventDefault();
+    
+    try {
+
+      const formDataJSON = JSON.stringify(formData);
+
+      const response = await axios.post(
+        'http://localhost:80/2023_hal-cinema/public/accountRegister/accountRegister.php',
+        formDataJSON,
+        {
+          headers: {
+            'Content-Type': 'application/json', // JSONデータを送信することをサーバーに伝える
+          },
+        }
+        );
+        if (response.status === 200){
+          console.log('データが正常に挿入されました。');
+          console.log(response.data);
+
+          // リダイレクト先のURLを指定
+          const redirectTo = '/'; // リダイレクト先のURL
+
+          alert("登録完了しました。ログインフォームからログインしてください。");
+
+          // リダイレクトを実行
+          navigate(redirectTo);
+        }else{
+          console.error('データの挿入に失敗しました。');
+        }
+    } catch (error){
+      console.error('エラー：', error);
+    }
   };
 
   return (
@@ -60,7 +107,7 @@ const SignUpForm = () => {
         required
       />
 
-      <label htmlFor="f_login_name">ユーザー名</label>
+      {/* <label htmlFor="f_login_name">ユーザー名</label>
       <input
         type="text"
         id="f_login_name"
@@ -68,7 +115,7 @@ const SignUpForm = () => {
         value={formData.f_login_name}
         onChange={handleChange}
         required
-      />
+      /> */}
 
       <label htmlFor="f_login_password">パスワード:</label>
       <input
@@ -181,7 +228,7 @@ const SignUpForm = () => {
         required
       />
 
-      <button type="submit">Submitここで登録する</button>
+      <button type="submit" onClick={handoleSubmitPushAxios}>Submitここで登録する</button>
 
       <Link to="/login">ログイン画面に戻る</Link>
     </form>
