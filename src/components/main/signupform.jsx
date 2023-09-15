@@ -120,7 +120,7 @@ const SignUpForm = () => {
         required
       />
 
-      <label htmlFor="f_news_subscribed">Subscribe to News:</label>
+      <label htmlFor="f_news_subscribed">メルマガ:</label>
       <input
         type="checkbox"
         id="f_news_subscribed"
@@ -129,7 +129,7 @@ const SignUpForm = () => {
         onChange={handleChange}
       />
 
-      <label htmlFor="f_birthday">Birthday:</label>
+      <label htmlFor="f_birthday">誕生日:</label>
       <input
         type="date"
         id="f_birthday"
@@ -139,7 +139,7 @@ const SignUpForm = () => {
         required
       />
 
-      <label htmlFor="f_postal_code">Postal Code:</label>
+      <label htmlFor="f_postal_code">郵便番号:</label>
       <input
         type="text"
         id="f_postal_code"
@@ -152,7 +152,7 @@ const SignUpForm = () => {
         placeholder="000-0000"
       />
 
-      <label htmlFor="f_prefecture">Prefecture:</label>
+      <label htmlFor="f_prefecture">県:</label>
       <input
         type="text"
         id="f_prefecture"
@@ -162,7 +162,7 @@ const SignUpForm = () => {
         required
       />
 
-      <label htmlFor="f_city">City:</label>
+      <label htmlFor="f_city">市町村:</label>
       <input
         type="text"
         id="f_city"
@@ -172,7 +172,7 @@ const SignUpForm = () => {
         required
       />
 
-      <label htmlFor="f_address1">Address 1:</label>
+      <label htmlFor="f_address1">住所:</label>
       <input
         type="text"
         id="f_address1"
@@ -182,7 +182,7 @@ const SignUpForm = () => {
         required
       />
 
-      <label htmlFor="f_address2">Address 2:</label>
+      <label htmlFor="f_address2">マンション名:</label>
       <input
         type="text"
         id="f_address2"
@@ -191,7 +191,7 @@ const SignUpForm = () => {
         onChange={handleChange}
       />
 
-      <label htmlFor="f_mail_address">Email Address:</label>
+      <label htmlFor="f_mail_address">メールアドレス:</label>
       <input
         type="email"
         id="f_mail_address"
@@ -201,7 +201,7 @@ const SignUpForm = () => {
         required
       />
 
-      <label htmlFor="f_full_name_kanji">Full Name (Kanji):</label>
+      <label htmlFor="f_full_name_kanji">漢字:</label>
       <input
         type="text"
         id="f_full_name_kanji"
@@ -211,7 +211,7 @@ const SignUpForm = () => {
         required
       />
 
-      <label htmlFor="f_full_name_kana">Full Name (Kana):</label>
+      <label htmlFor="f_full_name_kana">カタカナ:</label>
       <input
         type="text"
         id="f_full_name_kana"
