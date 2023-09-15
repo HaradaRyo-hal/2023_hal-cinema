@@ -1,13 +1,14 @@
 import React from 'react';
+import './access.css';
 
 const News_Component = () => {
     const images = [
-        { imageUrl: 'images/news1.jpg', text: 'Image 1' },
-        { imageUrl: 'images/news2.jpg', text: 'Image 2' },
-        { imageUrl: 'images/news3.jpg', text: 'Image 3Image 3Image 3Image 3Image 3Image 3Image 3Image 3Image 3' },
-        { imageUrl: 'images/news3.jpg', text: 'Image 4' },
-        { imageUrl: 'images/news3.jpg', text: 'Image 5' },
-        { imageUrl: 'images/news3.jpg', text: 'Image 6' },
+        { imageUrl: 'images/news1.jpg', text: 'セーラームーン公開' },
+        { imageUrl: 'images/news2.jpg', text: '名探偵コナン' },
+        { imageUrl: 'images/news3.jpg', text: 'fate効果' },
+        { imageUrl: 'images/news3.jpg', text: 'グッズ頒布' },
+        // { imageUrl: 'images/news3.jpg', text: 'Image 5' },
+        // { imageUrl: 'images/news3.jpg', text: 'Image 6' },
     ];
 
     return (

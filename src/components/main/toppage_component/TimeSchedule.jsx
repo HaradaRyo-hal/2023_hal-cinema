@@ -13,31 +13,32 @@ const TicketPurchaseComponent = () => {
             { time: '14:00~16:00', theater: 'シアター３', availability: '〇購入可' }
           ]
         },
-        {
-          title: 'A',
-          showtimes: [
-            { time: '08:30~10:30', theater: 'シアター３', availability: '〇購入可' },
-            { time: '11:30~13:30', theater: 'シアター３', availability: '〇購入可' },
-            { time: '14:00~16:00', theater: 'シアター３', availability: '〇購入可' },
-            { time: '16:30~18:30', theater: 'シアター３', availability: '〇購入可' },
-            { time: '19:00~21:00', theater: 'シアター３', availability: '〇購入可' }
-          ]
-        },
-        {
-          title: 'B',
-          showtimes: [
-            { time: '08:30~10:30', theater: 'シアター１', availability: '〇購入可' },
-            { time: '11:30~13:30', theater: 'シアター２', availability: '〇購入可' },
-            { time: '14:00~16:00', theater: 'シアター３', availability: '〇購入可' }
-          ]
-        }
+        // {
+        //   title: 'A',
+        //   showtimes: [
+        //     { time: '08:30~10:30', theater: 'シアター３', availability: '〇購入可' },
+        //     { time: '11:30~13:30', theater: 'シアター３', availability: '〇購入可' },
+        //     { time: '14:00~16:00', theater: 'シアター３', availability: '〇購入可' },
+        //     { time: '16:30~18:30', theater: 'シアター３', availability: '〇購入可' },
+        //     { time: '19:00~21:00', theater: 'シアター３', availability: '〇購入可' }
+        //   ]
+        // },
+        // {
+        //   title: 'B',
+        //   showtimes: [
+        //     { time: '08:30~10:30', theater: 'シアター１', availability: '〇購入可' },
+        //     { time: '11:30~13:30', theater: 'シアター２', availability: '〇購入可' },
+        //     { time: '14:00~16:00', theater: 'シアター３', availability: '〇購入可' }
+        //   ]
+        // }
       ]
     },
     {
       id: 2,
       movies: [
         {
-          title: '06/02 A',
+          // title: '06/02 A',
+          title: '名探偵コナン',
           showtimes: [
             { time: '08:30~10:30', theater: 'シアター３', availability: '〇購入可' },
             { time: '11:30~13:30', theater: 'シアター３', availability: '〇購入可' },
@@ -46,22 +47,22 @@ const TicketPurchaseComponent = () => {
             { time: '19:00~21:00', theater: 'シアター３', availability: '〇購入可' }
           ]
         },
-        {
-          title: '06/02 B',
-          showtimes: [
-            { time: '08:30~10:30', theater: 'シアター１', availability: '〇購入可' },
-            { time: '11:30~13:30', theater: 'シアター２', availability: '〇購入可' },
-            { time: '14:00~16:00', theater: 'シアター３', availability: '〇購入可' }
-          ]
-        },
-        {
-          title: '06/02 C',
-          showtimes: [
-            { time: '08:30~10:30', theater: 'シアター１', availability: '〇購入可' },
-            { time: '11:30~13:30', theater: 'シアター２', availability: '〇購入可' },
-            { time: '14:00~16:00', theater: 'シアター３', availability: '〇購入可' }
-          ]
-        }
+        // {
+        //   title: '06/02 B',
+        //   showtimes: [
+        //     { time: '08:30~10:30', theater: 'シアター１', availability: '〇購入可' },
+        //     { time: '11:30~13:30', theater: 'シアター２', availability: '〇購入可' },
+        //     { time: '14:00~16:00', theater: 'シアター３', availability: '〇購入可' }
+        //   ]
+        // },
+        // {
+        //   title: '06/02 C',
+        //   showtimes: [
+        //     { time: '08:30~10:30', theater: 'シアター１', availability: '〇購入可' },
+        //     { time: '11:30~13:30', theater: 'シアター２', availability: '〇購入可' },
+        //     { time: '14:00~16:00', theater: 'シアター３', availability: '〇購入可' }
+        //   ]
+        // }
       ]
     },
     // 他のコンテンツの映画データを追加

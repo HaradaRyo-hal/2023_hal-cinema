@@ -1,0 +1,139 @@
+body {
+
+  margin: 0;
+
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+
+    sans-serif;
+
+  -webkit-font-smoothing: antialiased;
+
+  -moz-osx-font-smoothing: grayscale;
+
+}
+
+
+
+code {
+
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+
+    monospace;
+
+}
+
+/* Style for the form container */
+
+form {
+
+  max-width: 400px;
+
+  margin: 0 auto;
+
+  padding: 20px;
+
+  border: 1px solid #ccc;
+
+  border-radius: 5px;
+
+  background-color: #f9f9f9;
+
+}
+
+
+
+/* Style for form labels */
+
+label {
+
+  display: block;
+
+  margin-bottom: 5px;
+
+  font-weight: bold;
+
+}
+
+
+
+/* Style for form inputs */
+
+input[type="text"],
+
+input[type="password"],
+
+input[type="date"],
+
+input[type="email"],
+
+input[type="checkbox"] {
+
+  width: 100%;
+
+  padding: 10px;
+
+  margin-bottom: 10px;
+
+  border: 1px solid #ccc;
+
+  border-radius: 3px;
+
+  font-size: 16px;
+
+}
+
+
+
+/* Style for the submit button */
+
+button[type="submit"] {
+
+  width: 100%;
+
+  padding: 10px;
+
+  background-color: #007bff;
+  /* Change to your desired button color */
+
+  color: #fff;
+
+  border: none;
+
+  border-radius: 3px;
+
+  font-size: 18px;
+
+  cursor: pointer;
+
+}
+
+
+
+/* Style for the link to the login page */
+
+a {
+
+  display: block;
+
+  text-align: center;
+
+  margin-top: 10px;
+
+  text-decoration: none;
+
+  color: #007bff;
+  /* Change to your desired link color */
+
+}
+
+
+
+/* Style for the link on hover */
+
+a:hover {
+
+  text-decoration: underline;
+
+}
