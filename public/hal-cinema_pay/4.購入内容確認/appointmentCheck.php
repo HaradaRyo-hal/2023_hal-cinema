@@ -8,9 +8,10 @@
 
     $connt = 0;
     
-    $seatNanem = "A5";
+    $seatNaem = ["A5","A1"];
     $f_theater_schedule_id = "1";
     
+    $seats;
 
     // データベース接続情報
     $hostname = "localhost"; // データベースサーバーのホスト名
@@ -26,35 +27,46 @@
         die("Connection failed: " . $conn->connect_error);
     }
 
-    $sql = "select f_seat_number,COUNT(*) as 'count' from t_appointments JOIN t_appointment_details ON t_appointments.f_appointment_id = t_appointment_details.f_appointment_id AND f_theater_schedule_id = ? AND f_seat_number = ? GROUP BY f_seat_number";
-    $stmt = $conn->prepare($sql);
+    $sql = "select f_seat_number as 'name',COUNT(*) as 'count' from t_appointments JOIN t_appointment_details ON t_appointments.f_appointment_id = t_appointment_details.f_appointment_id AND f_theater_schedule_id = ? AND f_seat_number = ? GROUP BY f_seat_number";
 
-    if($stmt){
-        
-        $stmt->bind_param("ss", $f_theater_schedule_id, $seatNanem);
+    foreach ($seatNaem as $key => $value) {
+        # code...
+        $stmt = $conn->prepare($sql);
 
-        // ステートメントを実行
-        $stmt->execute();
+        if($stmt){
+            
+            $stmt->bind_param("ss", $f_theater_schedule_id, $value);
 
-        // 結果を取得
-        $result = $stmt->get_result();
+            // ステートメントを実行
+            $stmt->execute();
 
-        $data = array();
-        while ($row = $result->fetch_assoc()) {
-            $data[] = $row;
+            // 結果を取得
+            $result = $stmt->get_result();
+
+            $data = [];
+            while ($row = $result->fetch_assoc()) {
+                $data[] = $row;
+            }
+
+            if(empty($data)){
+                $seats[$value] = "none";
+            }else{
+                $seats[$value] = $data;
+            };
+
         }
 
-        print_r($data);
-
-        if(empty($data)){
-            echo "not data";
-        }else{
-            echo "on data";
-        };
+        $stmt = null;
 
     }
 
-        $stmt = null;
         $conn = null;
+
+        // var_dump($seats);
+
+        foreach ($seats as $key => $value) {
+            echo $value[0]['name']."|".$value[0]['count']."<br>";
+            // print_r($value);
+        }
 
 ?>

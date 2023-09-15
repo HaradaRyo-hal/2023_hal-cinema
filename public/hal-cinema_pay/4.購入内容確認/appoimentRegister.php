@@ -1,4 +1,5 @@
 <?php
+
 // データベース接続情報
 $servername = "localhost"; // データベースサーバーのホスト名
 $username = "root";   // データベースユーザー名
