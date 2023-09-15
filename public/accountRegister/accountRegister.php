@@ -1,6 +1,6 @@
 <?php
 // レスポンスヘッダーにCORSヘッダーを設定
-header("Access-Control-Allow-Origin: http://localhost:57582"); // リクエストを許可するオリジンを指定
+header("Access-Control-Allow-Origin: http://localhost:3000"); // リクエストを許可するオリジンを指定
 header("Access-Control-Allow-Methods: POST, GET, OPTIONS"); // 許可するHTTPメソッドを指定
 header("Access-Control-Allow-Headers: Content-Type"); // 許可するリクエストヘッダーを指定
 

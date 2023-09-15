@@ -36,9 +36,9 @@
 
               if (json_last_error() === JSON_ERROR_NONE) {
                   // データの表示 後で消す
-                  echo "<h2>座席とチケットの種類:</h2>";
+                  // echo "<h2>座席とチケットの種類:</h2>";
                   foreach ($seatTicketMapping as $seat => $ticketType) {
-                      echo "<p>座席: $seat, チケットの種類: $ticketType</p>";
+                      // echo "<p>座席: $seat, チケットの種類: $ticketType</p>";
                       setcookie("seat[$seat]", $ticketType, ['path' => '/']);
                   }
               } else {

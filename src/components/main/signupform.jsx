@@ -19,14 +19,6 @@ const SignUpForm = () => {
     f_full_name_kana: '友哉', //カナ氏名
   });
 
-  // Cookieを設定する関数
-  function setCookie(name, value, days) {
-    const date = new Date();
-    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000)); // 有効期限を設定
-    const expires = "expires=" + date.toUTCString();
-    document.cookie = name + "=" + value + ";" + expires + ";path=/"; // Cookieを設定
-  }
-
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     let fieldValue = value;

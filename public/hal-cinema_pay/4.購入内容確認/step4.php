@@ -34,50 +34,50 @@
 
               if (json_last_error() === JSON_ERROR_NONE) {
                   // データの表示
-                  echo "<h2>座席とチケットの種類:</h2>";
-                  echo "<ul>";
+                  // echo "<h2>座席とチケットの種類:</h2>";
+                  // echo "<ul>";
                   foreach ($seatTicketMapping as $seat => $ticketType) {
-                      echo "<li>座席: $seat, チケットの種類: $ticketType</li>";
+                      // echo "<li>座席: $seat, チケットの種類: $ticketType</li>";
                   }
-                  echo "</ul>";
+                  // echo "</ul>";
               } else {
-                  echo "JSONデコードエラー: " . json_last_error_msg();
+                  // echo "JSONデコードエラー: " . json_last_error_msg();
               }
           } else {
               echo "座席情報が送信されていません。";
           }
       } else {
-          echo "無効なリクエストです。";
+          // echo "無効なリクエストです。";
       }
     ?>
 
   <main>
     <div class="confirmation">
-      <h2>入力された情報(debug)</h2>
+      <!-- <h2>入力された情報(debug)</h2> -->
       <?php
       
-        print "POST </br>";
+        // print "POST </br>";
         foreach ($_POST as $key => $value) {
-          print $key;
-          print ": ";
-          print $value;
-          print "<br/>";
+          // print $key;
+          // print ": ";
+          // print $value;
+          // print "<br/>";
           setcookie("profile[$key]", $value, ['path' => '/']);
         }
       
-        print "COOLIKIE </br>";
+        // print "COOLIKIE </br>";
         foreach ($_COOKIE as $key => $value) {
-          print $key;
-          print ": ";
-          print $value;
-          print "<br/>";
+          // print $key;
+          // print ": ";
+          // print $value;
+          // print "<br/>";
         }
         $price = 0;
         foreach ($_COOKIE["seat"] as $key => $value) {
-          print $key;
-          print ": ";
-          print $value;
-          print "<br/>";
+          // print $key;
+          // print ": ";
+          // print $value;
+          // print "<br/>";
           
           switch ($value) {
             case '一般':
@@ -103,7 +103,7 @@
       setcookie("ticketPrice", $price, ['path' => '/']);
 
 
-        print "end";
+        // print "end";
       ?>
 
       <!-- ここから本筋 -->

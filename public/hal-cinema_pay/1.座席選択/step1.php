@@ -3,7 +3,7 @@
 // スケジュールIDの取得
 // ユーザのテーブルIDを取得
 
-
+echo $_COOKIE['test'];
 
   $theater = $_GET['theater'];
 
@@ -23,7 +23,7 @@
   // スクリーンID
   setcookie("screen", "SCR000A1", ['path' => '/']);
   // ユーザID -> 本来ならcookie入力済み
-  setcookie("userid", "USR00000" ,['path' => '/']);
+  setcookie("userid",  $_COOKIE['test'],['path' => '/']);
 
 
 ?>
