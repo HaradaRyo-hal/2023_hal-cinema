@@ -8,7 +8,10 @@
   // 選択された座席のクラスを切り替える関数
   function toggleSeat(seat) {
     // 選択された座席のクラスを切り替える
-    seat.classList.toggle("selected");
+    // ボタンがdisabledされているときにselectedクラスにできないように
+    if(!seat.disabled){
+      seat.classList.toggle("selected");
+    }
 
     // 選択された座席のアルファベットと番号を取得
     var seatLabel = seat.parentElement.querySelector(".tateretu p").innerHTML; // .tateretu p の中のテキストを呼び出している。
