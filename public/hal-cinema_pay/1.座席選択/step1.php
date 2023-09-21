@@ -3,7 +3,7 @@
 // スケジュールIDの取得
 // ユーザのテーブルIDを取得
 
-echo $_COOKIE['test'];
+// echo $_COOKIE['test'];
 
   $theater = $_GET['theater'];
 
