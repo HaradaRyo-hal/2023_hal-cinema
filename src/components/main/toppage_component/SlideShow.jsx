@@ -13,7 +13,7 @@ const SlideShowComponent = () => {
 
   const settings = {
     autoplay: true,
-    autoplaySpeed: 1000,
+    autoplaySpeed: 5000,
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,

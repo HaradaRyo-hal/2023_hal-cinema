@@ -6,7 +6,6 @@ import './signupform.css';
 const SignUpForm = () => {
   const [formData, setFormData] = useState({
     f_user_id: 'test',//ユーザーID
-    f_login_name: '', //名前
     f_login_password: 'password', // パスワード
     f_news_subscribed: false, //メルマガ いるかいらないか？
     f_birthday: '', // 誕生日
@@ -23,18 +22,6 @@ const SignUpForm = () => {
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     let fieldValue = value;
-
-    // // 入力制限を追加
-    // if (name === 'f_postal_code') {
-    //   // 数字のみの入力と3桁目と4桁目の間にハイフンの自動配置、最大文字数7文字
-    //   fieldValue = value.replace(/\D/g, '').replace(/(\d{3})(\d{1,4})/, '$1-$2').slice(0, 8);
-    // } else if (name === 'f_prefecture' || name === 'f_full_name_kanji') {
-    //   // 数字と英語の入力を制限
-    //   fieldValue = value.replace(/[^ぁ-んァ-ン一-龥ー]/g, '');
-    // } else if (name === 'f_full_name_kana') {
-    //   // カタカナのみの入力を制限
-    //   fieldValue = value.replace(/[^ァ-ンー]/g, '');
-    // }
 
     const updatedFormData = {
       ...formData,
@@ -88,7 +75,11 @@ const SignUpForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <div>
+      
+      <Link to="/login">ログイン画面に戻る</Link>
+    
+      <form onSubmit={handleSubmit}>
       {/* 各フィールドの入力フィールドを追加 */}
       <label htmlFor="f_user_id">ユーザーID</label>
       <input
@@ -99,16 +90,6 @@ const SignUpForm = () => {
         onChange={handleChange}
         required
       />
-
-      {/* <label htmlFor="f_login_name">ユーザー名</label>
-      <input
-        type="text"
-        id="f_login_name"
-        name="f_login_name"
-        value={formData.f_login_name}
-        onChange={handleChange}
-        required
-      /> */}
 
       <label htmlFor="f_login_password">パスワード:</label>
       <input
@@ -221,10 +202,10 @@ const SignUpForm = () => {
         required
       />
 
-      <button type="submit" onClick={handoleSubmitPushAxios}>Submitここで登録する</button>
+      <button type="submit" onClick={handoleSubmitPushAxios}>登録する</button>
 
-      <Link to="/login">ログイン画面に戻る</Link>
     </form>
+    </div>
   );
 };
 

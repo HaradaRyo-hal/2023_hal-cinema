@@ -3,13 +3,11 @@
 .Sidebar {
   position: fixed;
   height: 100%;
-  width: 280px;
-  /* background-image: url('../../../public/images/hal2.jpg'); */
+  width: 20%;
   background-color: #a57a43;
   background-size: cover; /* 画像を要素に合わせて拡大縮小 */
   background-position: center ; /* 画像を中央に配置 */
   background-repeat: no-repeat; /* 画像の繰り返しを禁止 */
-  /* filter: grayscale(90%); 後で変える */
 }
 
 .SidebarList {
