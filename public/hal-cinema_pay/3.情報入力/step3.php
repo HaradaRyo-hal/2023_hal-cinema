@@ -25,32 +25,7 @@
           </ol>
         </div>
     </header>
-    <?php
-      if ($_SERVER["REQUEST_METHOD"] == "POST") {
-          // seatTicketMapping フォームデータを取得
-          if (isset($_POST["seatTicketMapping"])) {
-              $seatTicketMappingJSON = $_POST["seatTicketMapping"];
-              
-              // JSONデータを連想配列にデコード
-              $seatTicketMapping = json_decode($seatTicketMappingJSON, true);
-
-              if (json_last_error() === JSON_ERROR_NONE) {
-                  // データの表示 後で消す
-                  // echo "<h2>座席とチケットの種類:</h2>";
-                  foreach ($seatTicketMapping as $seat => $ticketType) {
-                      // echo "<p>座席: $seat, チケットの種類: $ticketType</p>";
-                      setcookie("seat[$seat]", $ticketType, ['path' => '/']);
-                  }
-              } else {
-                  echo "JSONデコードエラー: " . json_last_error_msg();
-              }
-          } else {
-              echo "座席情報が送信されていません。";
-          }
-      } else {
-          echo "無効なリクエストです。";
-      }
-    ?>
+    
     <main>
 
       <h2>お客様情報入力</h2>
@@ -127,7 +102,6 @@
                 <option value="10">10</option>
                 <option value="11">11</option>
                 <option value="12">12</option>
-                <!-- 他の月のオプションを追加 -->
               </select>
               <p>月</p>
               <select name="expiryYear"  placeholder="2023" required>
@@ -149,7 +123,6 @@
                 <option value="2024">2038</option>
                 <option value="2024">2039</option>
                 <option value="2024">2040</option>
-                <!-- 他の年のオプションを追加 -->
               </select>
               <p>年</p>
             </div>
@@ -170,7 +143,7 @@
             </div>
           </div>
 
-          <input type="hidden" name="seatTicketMapping" value="" id="seatTicketMapping">
+          <input type="hidden" name="seatTicketMapping" value="<?php echo htmlspecialchars($_POST["seatTicketMapping"]); ?>" id="seatTicketMapping">
             <div class="next">
               <input type="submit" value="次へ" />
             </div>
