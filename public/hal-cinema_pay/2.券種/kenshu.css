@@ -1,0 +1,16 @@
+  /* 座席とドロップダウンメニューのコンテナ全体に対するスタイル */
+  .seat-container {
+    margin-bottom: 10px; /* 座席コンテナの間隔を調整 */
+  }
+
+  /* 座席名に対するスタイル */
+  .seat-name {
+    font-weight: bold; /* 座席名を太字にする */
+  }
+
+  /* ドロップダウンメニューに対するスタイル */
+  select {
+    padding: 10px; /* ドロップダウンメニューの内側の余白を追加 */
+    border: 1px solid #ccc; /* ボーダーを追加 */
+    border-radius: 4px; /* 角を丸める */
+  }

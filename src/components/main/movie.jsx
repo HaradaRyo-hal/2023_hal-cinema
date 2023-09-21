@@ -24,7 +24,7 @@ const Movie = () => {
       <main>
         <div>
           <div>
-              <h1>上映中</h1>
+              <h1>映画一覧</h1>
           </div>
           <div className="tab-header">
             <div

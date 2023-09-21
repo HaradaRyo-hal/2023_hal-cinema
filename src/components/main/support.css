@@ -10,7 +10,6 @@
     }
   }
   .Form-Item {
-  
     padding-top: 24px;
     padding-bottom: 24px;
     width: 100%;
@@ -25,9 +24,6 @@
       padding-bottom: 16px;
       flex-wrap: wrap;
     }
-  }
-  .Form-Item:nth-child(5) {
-  
   }
   .Form-Item-Label {
     width: 100%;
@@ -61,7 +57,8 @@
     width: 48px;
     display: inline-block;
     text-align: center;
-    background: #545454;
+    color: #fff;
+    background-color: #166ab5;
     color: #fff;
     font-size: 14px;
   }
@@ -119,7 +116,6 @@
     }
   }
   .Form-Btn {
-    border-radius: 6px;
     margin-top: 32px;
     margin-left: auto;
     margin-right: auto;
@@ -128,10 +124,16 @@
     width: 280px;
     display: block;
     letter-spacing: 0.05em;
-    background: #545454;
     color: #fff;
+    background-color: #166ab5;
     font-weight: bold;
     font-size: 20px;
+    border-radius: 10px;
+    border: none;
+  }
+  .Form-Btn:hover{
+    color: #fff;
+    background-color: #6a94b8;
   }
   @media screen and (max-width: 480px) {
     .Form-Btn {
