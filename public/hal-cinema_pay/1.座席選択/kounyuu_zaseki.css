@@ -48,6 +48,11 @@
     background-color: #003d80;
     color: #fff;
 }
+/* ボタンがdisabledされているとき */
+.disabled {
+    background-color: #f00;
+    color: #fff;
+}
 
 
 /* 席の状況の説明 */

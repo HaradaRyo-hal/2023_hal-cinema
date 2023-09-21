@@ -8,15 +8,21 @@ echo $_COOKIE['test'];
   $theater = $_GET['theater'];
 
   // 外部ファイルからコンテンツを読み込む
-  if ($theater == 'シアター１') {
-      $seatContent = file_get_contents('./seat/A_theater_seat.html');
-  } elseif ($theater == 'シアター２') {
-      $seatContent = file_get_contents('./seat/B_theater_seat.html');
-  } elseif ($theater == 'シアター３') {
-      $seatContent = file_get_contents('./seat/C_theater_seat.html');
-  } else {
-      $seatContent = 'その他の劇場の座席情報';
-  }
+  // if ($theater == 'シアター１') {
+  //     $seatContent = file_get_contents('./seat/A_theater_seat.html');
+  // } elseif ($theater == 'シアター２') {
+  //     $seatContent = file_get_contents('./seat/B_theater_seat.html');
+  // } elseif ($theater == 'シアター３') {
+  //     $seatContent = file_get_contents('./seat/C_theater_seat.html');
+  // } else {
+  //     $seatContent = 'その他の劇場の座席情報';
+  // }
+
+  // スケジュールIDをとりあえず１に設定したが、本番は消す
+$scheduleId = 1;
+// 座席の表示するためのPHPファイルの読み込み
+  require_once("./seat/theater_seat.php");
+  $seatContent = theaterSeat($theater,$scheduleId);
 
   // スケジュールID
   setcookie("schedule", "1" ,['path' => '/']);

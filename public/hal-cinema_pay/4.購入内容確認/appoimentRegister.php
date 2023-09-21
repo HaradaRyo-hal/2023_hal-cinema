@@ -116,6 +116,21 @@ foreach ($_COOKIE['seat'] as $key => $value) {
     // ステートメントを閉じる
     $stmt->close();
 
+    $sql = "INSERT INTO t_seats (f_seat_number, f_theater_schedule_id, f_seat_status) VALUES (?, ?, ?)";
+    $stmt = $conn->prepare($sql);
+
+    $status = 1;
+
+    $stmt->bind_param("sii", $seat, $scheduleId, $status);
+
+    if ($stmt->execute()) {
+    }else{
+        echo "エラー: " . $stmt->error;
+    }
+
+    // ステートメントを閉じる
+    $stmt->close();
+
 }
 
 
