@@ -2,8 +2,12 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import Modal from "./modal.jsx";
 
 const SlideShowComponent = () => {
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [selectedMovie, setSelectedMovie] = useState(null); // 選択した映画のデータ
+
   const [content, setContent] = useState("");
   const [selectedMovieId, setSelectedMovieId] = useState(null);
   const [movieTitleId, setMovieTitleId] = useState("");
@@ -21,13 +25,21 @@ const SlideShowComponent = () => {
     { f_movie_id: "MV000001", imageUrl: "images/tokyo.jpg", alt: "Image 5" },
   ];
 
+  // モーダルを閉じる関数
+  const closeModal = () => {
+    setModalIsOpen(false);
+  };
+
   // 画像クリック時の処理
   const handleImageClick = (imageIndex) => {
-    const movieId = images[imageIndex].f_movie_id; // クリックされた画像に対応するf_movie_idを取得
-
+    const movie = images[imageIndex]; // クリックされた画像に関連するデータ
+    setSelectedMovie(movie); // 選択した映画のデータをセット
+    setModalIsOpen(true); // モーダルを開く
     // movieIdをPHPに送信
     axios
-      .post("http://localhost:80/halcinema/slidedb.php", { id: movieId }) // "id"プロパティを含める
+      .post("http://localhost:80/halcinema/slidedb.php", {
+        id: movie.f_movie_id,
+      }) // "id"プロパティを含める
       .then((response) => {
         const data = response.data;
         setContent(data.f_content);
@@ -67,15 +79,30 @@ const SlideShowComponent = () => {
         ))}
       </Slider>
 
+      {/* モーダルを表示 */}
+      <Modal
+        isOpen={modalIsOpen}
+        closeModal={closeModal}
+        movie={selectedMovie}
+        content={content} // Contentを渡す
+        selectedMovieId={selectedMovieId}
+        movieTitleId={movieTitleId}
+        movieRuntime={movieRuntime}
+        moviedata={moviedata}
+        genreId={genreId}
+        movietitlejapan={movietitlejapan}
+        movietitleforeign={movietitleforeign}
+      />
+
       {/* 取得したデータを表示 */}
-      <div>Content:{content}</div>
-      <div>movieID:{selectedMovieId}</div>
-      <div>movieTitleId:{movieTitleId}</div>
-      <div>movieRuntime:{movieRuntime}分</div>
-      <div>moviedata:{moviedata}</div>
-      <div>movieGenre:{genreId}</div>
-      <div>movieTitleJapan:{movietitlejapan}</div>
-      <div>movieTitleForeign:{movietitleforeign}</div>
+      <div>Content: {content}</div>
+      <div>movieID: {selectedMovieId}</div>
+      <div>movieTitleId: {movieTitleId}</div>
+      <div>movieRuntime: {movieRuntime}分</div>
+      <div>moviedata: {moviedata}</div>
+      <div>movieGenre: {genreId}</div>
+      <div>movieTitleJapan: {movietitlejapan}</div>
+      <div>movieTitleForeign: {movietitleforeign}</div>
     </div>
   );
 };
