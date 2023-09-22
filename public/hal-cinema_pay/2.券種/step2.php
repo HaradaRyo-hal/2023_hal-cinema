@@ -77,6 +77,9 @@ session_start();
       <h1>チケット選択</h1>
       <div id="seatList"></div>
 
+      <!-- 合計金額を表示する要素 -->
+      <div id="totalPrice">合計金額: 0円</div>
+
       <form action="../3.情報入力/step3.php" method="post">
         <!-- オブジェクトをJSON文字列に変換してフォームに設定 -->
         <input type="hidden" id="seatTicketMapping" name="seatTicketMapping" value="">
@@ -85,7 +88,7 @@ session_start();
         </div>
       </form>
       <div>
-        <a href="#" class="moda">◀戻る</a>
+        <a href="../1.座席選択/step1.php" class="moda">◀戻る</a>
       </div>
 
     </main>
@@ -112,7 +115,14 @@ session_start();
         ticketTypeSelect.name = 'ticketType-' + seat;
 
         // チケットの種類を追加
-        var ticketTypes = ['選択してください', '一般', '大学生等', '中学、高校', '小学生、幼児'];
+        var ticketTypes = ['選択してください', '一般', '大学生', '中学、高校', '小学生、幼児'];
+        var seatPrices = {
+          '一般': 1900, 
+          '大学生': 1500, 
+          '中学、高校': 1000,
+          '小学生、幼児': 400
+        };
+
 
         for (var j = 0; j < ticketTypes.length; j++) {
           var option = document.createElement('option');
@@ -129,13 +139,15 @@ session_start();
           console.log(seatTicketMapping); // オブジェクトの内容をコンソールで確認
           var seatJs = document.getElementById("seatTicketMapping");//HTML要素内の id 属性が "seatTicketMapping" である要素をJavaScriptの変数 seatJs に取得しています
           seatJs.value = JSON.stringify(seatTicketMapping);//変数 seatTicketMapping に格納されているJavaScriptオブジェクトをJSON文字列に変換
+
         });
+
 
         var seatContainer = document.createElement('div');
         seatContainer.classList.add('seat-container'); // seat-container クラスを追加
-        
-    var seatName = document.createElement('span');
-    seatName.classList.add('seat-name'); // seat-name クラスを追加
+            
+        var seatName = document.createElement('span');
+        seatName.classList.add('seat-name'); // seat-name クラスを追加
         seatContainer.innerHTML = seat + ": ";
 
         seatContainer.appendChild(ticketTypeSelect);
@@ -173,4 +185,5 @@ session_start();
       </ul>
     </div>
   </footer>
+
 </html>

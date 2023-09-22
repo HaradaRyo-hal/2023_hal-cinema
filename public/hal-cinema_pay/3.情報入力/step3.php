@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../common.css" />
-    <link rel="stylesheet" href="./index.css" />
+    <link rel="stylesheet" href="./step3.css" />
     
     <title>3.情報入力</title>
   </head>
@@ -150,7 +150,7 @@
         </form>
         
         <div>
-          <a href="#" class="moda">◀戻る</a>
+          <a href="../2.券種/step2.php" class="moda">◀戻る</a>
         </div>
       </div>
     </main>

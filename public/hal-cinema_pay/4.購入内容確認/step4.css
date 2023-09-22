@@ -1,0 +1,52 @@
+.viewbox {
+    display: flex;
+    flex-direction: column;
+    background-color: #eee;
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 50px;
+}
+.viewbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    box-sizing: border-box;
+    border-bottom: 1px solid #ccc;
+    margin: 5px 10px;
+    padding-bottom: 5px;
+}
+.viewbar:last-child{
+    border-bottom: none;    
+}
+.viewbar ul {
+    list-style: none;
+    padding: 0;
+    margin: 5px  0px;
+}
+h1 {
+    font-size: 16px;
+    width: 35%;
+    text-align: left;
+} 
+.infor {
+    font-weight: 600;
+    max-width: 65%;
+    text-align: left;
+}
+
+.seat {
+    display: flex;
+    align-items: center;
+}
+.seat-infor {
+    margin: 0 10px 10px 0;
+    font-weight: 600;
+}
+.red{
+    color: red;
+}
+.subtitle{
+    text-align: left;
+    font-weight: 700;
+    margin-bottom: 10px;
+}

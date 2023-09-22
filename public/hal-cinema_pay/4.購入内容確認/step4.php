@@ -7,7 +7,8 @@
   <link rel="stylesheet" href="../common.css" />
   <link rel="stylesheet" href="../common.js" />
   <link rel="stylesheet" href="../common.php" />
-  <link rel="stylesheet" href="./styles.css" />
+  <link rel="stylesheet" type="text/css" href="step4.css">
+
   <title>4.確認画面</title>
 </head>
 <body>
@@ -23,86 +24,80 @@
       </ol>
     </div>
     <style>
-      ul {
-          list-style-type: none;
-          padding: 0;
-          margin: 0;
-      }
-
-      ul li.seat{
-        background-color: #f8f8f8;
-        border: 1px solid #e0e0e0;
-        border-radius: 8px;
-        padding: 15px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-        transition: background-color 0.3s ease;
-      }
-      .seat-info {
-        font-size: 18px;
-        font-weight: bold;
-       
-      }
-      .ticket-info {
-        font-size: 18px;
-        font-weight: bold;
-        color: #000; 
-      }
-      h2 {
-        font-size: 24px;
-        font-weight: bold;
-        margin-top: 20px;
-        color: #333; 
-      }
-      .input-info {
-          font-weight: bold;
-          font-size: 20px;
-          margin: 10px 0;
-      }
-      .data-item {
-          margin: 5px 0;
-      }
     </style>
 
   </header>
 
   <main>
+
     <div class="confirmation">
-      <!-- <h2>入力された情報(debug)</h2> -->
-      <?php
       
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-          // seatTicketMapping フォームデータを取得
-          if (isset($_POST["seatTicketMapping"])) {
+      <h2>購入内容確認</h2>
+      <h2 class="red">まだ購入は確定していません。</h2>
+      <p>ご購入内容をご確認頂き、「購入完了」ボタンを押して購入を確定してください。</p>
+
+      <div class="subtitle">作品情報</div>
+
+      <div class="viewbox">
+
+        <div class="viewbar">
+          <h1>劇場/スクリーン</h1>
+          <div class="infor">HAL CINEMA / シアター１</div>
+        </div>
+        <div class="viewbar">
+          <h1>作品名</h1>
+          <div class="infor">名探偵コナン名探偵コナン名探偵コナン名探偵コナン名探偵コナン名探偵コナン名探偵コナン名探偵コナン名探偵コナン名探偵コナン名探偵コナン名探偵コナン名探偵コナン名探偵コナン名探偵コナン名探偵コナン名探偵コナン名探偵コナン名探偵コナン名探偵コナン名探偵コナン名探偵コナン名探偵コナン</div>
+        </div>
+        <div class="viewbar">
+          <h1>鑑賞日時</h1>
+          <ul>
+            <li class="seat">
+              <div class="infor red">2023年 6月1日(木) 08:30～10:00</div>
+            </li>
+            <li class="seat">
+              <div class="red">※鑑賞日時を必ずご確認ください。</div>
+            </li>
+          </ul>
+        </div>
+
+        <?php
+          if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            // seatTicketMapping フォームデータを取得
+            if (isset($_POST["seatTicketMapping"])) {
               $seatTicketMappingJSON = $_POST["seatTicketMapping"];
-              
+
               // JSONデータを連想配列にデコード
               $seatTicketMapping = json_decode($seatTicketMappingJSON, true);
 
               if (json_last_error() === JSON_ERROR_NONE) {
-                  // データの表示
-                  echo "<h2>購入する座席と選択されたチケット</h2>";
-                  echo "<ul>";
-                  foreach ($seatTicketMapping as $seat => $ticketType) {
-                      echo 
-                      "<li class='seat'>
-                        <p>座席</p><span class='seat-info'>$seat $ticketType</span>
-                      </li>";
-                  }
-                  echo "</ul>";
-                  
+                // データの表示
+                echo "<div class='viewbar'>";
+                  echo "<h1>座席</h1>";
+                    echo "<ul>";
+                          foreach ($seatTicketMapping as $seat => $ticketType) {
+                            echo 
+                            "<li class='seat'>
+                              <div class='seat-infor'>$seat</div>
+                              <div class='seat-infor'>$ticketType</div>
+                            </li>";
+                          }
+                    echo "</ul>";
+                echo "</div>";
               } else {
-                  echo "JSONデコードエラー: " . json_last_error_msg();
+                echo "JSONデコードエラー: " . json_last_error_msg();
               }
-          } else {
+            } else {
               echo "座席情報が送信されていません。";
+            }
+          } else {
+            echo "無効なリクエストです。";
           }
-      } else {
-          echo "無効なリクエストです。";
-      }
+        ?>
 
+      </div>
+
+
+      <?php
         // print "POST </br>";
         foreach ($_POST as $key => $value) {
           // print $key;
@@ -112,43 +107,41 @@
           setcookie("profile[$key]", $value, ['path' => '/']);
         }
       
-        // print "COOLIKIE </br>";
-        foreach ($_COOKIE as $key => $value) {
-          // print $key;
-          // print ": ";
-          // print $value;
-          // print "<br/>";
-        }
-        $price = 0;
-        foreach ($_COOKIE["seat"] as $key => $value) {
-          // print $key;
-          // print ": ";
-          // print $value;
-          // print "<br/>";
+      //   // print "COOLIKIE </br>";
+      //   foreach ($_COOKIE as $key => $value) {
+      //     // print $key;
+      //     // print ": ";
+      //     // print $value;
+      //     // print "<br/>";
+      //   }
+      //   $price = 0;
+      //   foreach ($_COOKIE["seat"] as $key => $value) {
+      //     // print $key;
+      //     // print ": ";
+      //     // print $value;
+      //     // print "<br/>";
           
-          switch ($value) {
-            case '一般':
-              # code...
-              $price += 1800;
-              break;
-            case '大学生等':
-              # code...
-              $price += 1600;
-              break;
-            case '中学、高校':
-              # code...
-              $price += 1400;
-              break;
-            case '小学生、幼児':
-              $price += 1000;
-            default:
-              # code...
-              break;
-          }
-      }
-
-      setcookie("ticketPrice", $price, ['path' => '/']);
-
+      //     switch ($value) {
+      //       case '一般':
+      //         # code...
+      //         $price += 1800;
+      //         break;
+      //       case '大学生等':
+      //         # code...
+      //         $price += 1600;
+      //         break;
+      //       case '中学、高校':
+      //         # code...
+      //         $price += 1400;
+      //         break;
+      //       case '小学生、幼児':
+      //         $price += 1000;
+      //       default:
+      //         # code...
+      //         break;
+      //     }
+      // }
+      // setcookie("ticketPrice", $price, ['path' => '/']);
 
         // print "end";
       ?>
@@ -169,13 +162,33 @@
       $cardHolderName = $_POST['cardHolderName'];
 
       // フォームの値を表示
-      echo "<h2>入力された情報</h2>";
-      echo "<p class='input-info'>お名前（カタカナ）: <span class='data-value'>$lastName $firstName</span></p>";
-      echo "<p class='input-info'>メールアドレス: <span class='data-value'>$email</span></p>";
-      echo "<p class='input-info'>電話番号: <span class='data-value'>$phoneNumber</span></p>";
-      echo "<p class='input-info'>購入金額: <span class='data-value'>$price</span></p>";
+      echo "<div class='subtitle'>購入情報</div>";
+      
+      echo "<div class='viewbox'>";
+        echo "<div class='viewbar'>";
+            echo 
+              "<h1>お名前（カタカナ）</h1>
+              <div class='infor'>$lastName $firstName</div>";
+        echo "</div>";
+        echo "<div class='viewbar'>";
+            echo 
+              "<h1>メールアドレス</h1>
+              <div class='infor'>$email</div>";
+        echo "</div>";
+        echo "<div class='viewbar'>";
+            echo 
+              "<h1>電話番号</h1>
+              <div class='infor'>$phoneNumber</div>";
+        echo "</div>";
+        echo "<div class='viewbar'>";
+            echo 
+              "<h1>カード番号</h1>
+              <div class='infor'>$cardNumber</div>";
+        echo "</div>";
+      echo "</div>";
 
-      //echo "<p>カード番号: $cardNumber</p>";
+      //echo "<p class='input-info'>購入金額: <span class='data-value'>$price</span></p>";
+
       //echo "<p>有効期限: $expiryMonth/$expiryYear</p>";
       //echo "<p>セキュリティーコード: $securityCode</p>";
       //echo "<p>カード名義人: $cardHolderName</p>";
@@ -187,6 +200,10 @@
         <input type="submit" value="予約を確定する" />
       </div>
     </form>
+    
+    <div>
+      <a href="../3.情報入力/step3.php" class="moda">◀戻る</a>
+    </div>
   </main>
 
   <footer>

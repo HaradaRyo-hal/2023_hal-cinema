@@ -231,7 +231,7 @@ $scheduleId = 1;
       </form>
       
       <div>
-        <a href="#" class="moda">◀戻る</a>
+        <a href="http://localhost:3000" class="moda">◀戻る</a>
       </div>
 
     </main>
