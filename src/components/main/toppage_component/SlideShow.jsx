@@ -22,7 +22,7 @@ const SlideShowComponent = () => {
     { f_movie_id: "MV000002", imageUrl: "images/mario.jpg", alt: "Image 2" },
     { f_movie_id: "MV000003", imageUrl: "images/otona.jpg", alt: "Image 3" },
     { f_movie_id: "MV000002", imageUrl: "images/rohan.jpg", alt: "Image 4" },
-    { f_movie_id: "MV000001", imageUrl: "images/tokyo.jpg", alt: "Image 5" },
+    { f_movie_id: "MV000004", imageUrl: "images/tokyo.jpg", alt: "Image 5" },
   ];
 
   // モーダルを閉じる関数
